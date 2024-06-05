@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "singularName": "comment",
+    "pluralName": "comments",
+    "displayName": "Comment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "week": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::week.week"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "group": {
+      "type": "enumeration",
+      "enum": [
+        "student",
+        "parent",
+        "teacher"
+      ]
+    },
+    "details": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subject.details"
+    }
+  }
+}

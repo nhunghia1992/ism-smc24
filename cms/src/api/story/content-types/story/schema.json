@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stories",
+  "info": {
+    "singularName": "story",
+    "pluralName": "stories",
+    "displayName": "Story",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "week": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::week.week"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "details": {
+      "type": "component",
+      "repeatable": false,
+      "component": "subject.details"
+    }
+  }
+}

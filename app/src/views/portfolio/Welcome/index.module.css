@@ -1,0 +1,13 @@
+.welcome {
+    height: 30vh;
+    background-color: #ccc;
+}
+
+.introTitle {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.introTitle > * {
+    padding: 0.5rem 1rem;
+}

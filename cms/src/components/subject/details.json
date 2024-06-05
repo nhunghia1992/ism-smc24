@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_subject_details",
+  "info": {
+    "displayName": "details"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "featuredOrder": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    }
+  }
+}
