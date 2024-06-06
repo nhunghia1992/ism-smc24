@@ -4,12 +4,13 @@ export interface SubjectDetails extends Schema.Component {
   collectionName: 'components_subject_details';
   info: {
     displayName: 'details';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
     description: Attribute.RichText;
     media: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    featured: Attribute.Boolean;
+    featured: Attribute.Boolean & Attribute.DefaultTo<false>;
     featuredOrder: Attribute.Integer &
       Attribute.SetMinMax<
         {

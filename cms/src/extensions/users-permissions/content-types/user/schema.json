@@ -82,7 +82,21 @@
       "target": "api::class.class",
       "inversedBy": "users"
     },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "portfolioWelcome": {
+      "type": "richtext"
+    },
+    "portfolioAbout": {
+      "type": "richtext"
+    },
+    "portfolioFavorite": {
       "type": "richtext"
     }
   }

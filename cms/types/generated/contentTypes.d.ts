@@ -735,7 +735,10 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'api::class.class'
     >;
+    image: Attribute.Media<'images'>;
     portfolioWelcome: Attribute.RichText;
+    portfolioAbout: Attribute.RichText;
+    portfolioFavorite: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
