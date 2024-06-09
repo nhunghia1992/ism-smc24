@@ -1,0 +1,36 @@
+.menuBtn {
+    position: fixed;
+    top: 3%;
+    right: 5%;
+    background: none;
+    border: none;
+    z-index: 1000;
+}
+
+.menuWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    z-index: 1000;
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .menuBtn {
+        top: 5%;
+    }
+}

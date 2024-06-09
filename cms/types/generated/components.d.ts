@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ProgramObjective extends Schema.Component {
+  collectionName: 'components_program_objectives';
+  info: {
+    displayName: 'Objective';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText;
+  };
+}
+
 export interface SubjectDetails extends Schema.Component {
   collectionName: 'components_subject_details';
   info: {
@@ -25,6 +36,7 @@ export interface SubjectDetails extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'program.objective': ProgramObjective;
       'subject.details': SubjectDetails;
     }
   }

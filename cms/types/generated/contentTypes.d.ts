@@ -817,11 +817,6 @@ export interface ApiClassClass extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     description: Attribute.RichText;
-    program: Attribute.Relation<
-      'api::class.class',
-      'manyToOne',
-      'api::program.program'
-    >;
     users: Attribute.Relation<
       'api::class.class',
       'oneToMany',
@@ -925,7 +920,7 @@ export interface ApiGradeGrade extends Schema.CollectionType {
   };
 }
 
-export interface ApiProgramProgram extends Schema.CollectionType {
+export interface ApiProgramProgram extends Schema.SingleType {
   collectionName: 'programs';
   info: {
     singularName: 'program';
@@ -934,16 +929,11 @@ export interface ApiProgramProgram extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     name: Attribute.String;
     description: Attribute.RichText;
-    classes: Attribute.Relation<
-      'api::program.program',
-      'oneToMany',
-      'api::class.class'
-    >;
     banner: Attribute.Media<'images'>;
     portfolioTitle: Attribute.String;
     portfolioDescription: Attribute.RichText;
@@ -952,9 +942,10 @@ export interface ApiProgramProgram extends Schema.CollectionType {
     aboutIsmart: Attribute.RichText;
     aboutIsmartVideo: Attribute.Media<'videos'>;
     aboutProgram: Attribute.RichText;
+    objectiveMedia: Attribute.Media<'images'>;
+    objectives: Attribute.Component<'program.objective', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::program.program',
       'oneToOne',
@@ -1089,6 +1080,38 @@ export interface ApiStoryStory extends Schema.CollectionType {
   };
 }
 
+export interface ApiTeacherTeacher extends Schema.CollectionType {
+  collectionName: 'teachers';
+  info: {
+    singularName: 'teacher';
+    pluralName: 'teachers';
+    displayName: 'Teacher';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.RichText;
+    media: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::teacher.teacher',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::teacher.teacher',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiWeekWeek extends Schema.CollectionType {
   collectionName: 'weeks';
   info: {
@@ -1137,6 +1160,7 @@ declare module '@strapi/types' {
       'api::project.project': ApiProjectProject;
       'api::robotics-coding.robotics-coding': ApiRoboticsCodingRoboticsCoding;
       'api::story.story': ApiStoryStory;
+      'api::teacher.teacher': ApiTeacherTeacher;
       'api::week.week': ApiWeekWeek;
     }
   }

@@ -10,14 +10,21 @@ const CAROUSEL_SETTINGS = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
+    centerPadding: '300px',
     responsive: [
         {
             breakpoint: 992,
             settings: {
-                slidesToShow: 1
+                centerPadding: '150px'
+            }
+        },
+        {
+            breakpoint: 576,
+            settings: {
+                centerPadding: '50px'
             }
         }
     ]

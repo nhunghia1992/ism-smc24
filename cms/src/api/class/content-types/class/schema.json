@@ -18,12 +18,6 @@
     "description": {
       "type": "richtext"
     },
-    "program": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::program.program",
-      "inversedBy": "classes"
-    },
     "users": {
       "type": "relation",
       "relation": "oneToMany",

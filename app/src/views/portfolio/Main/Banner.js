@@ -8,12 +8,12 @@ function Banner() {
     const [program, setProgram] = useState({})
     useEffect(() => {
         const getProgram = async () => {
-            const endpoint = '/programs'
+            const endpoint = '/program'
             const params = {
                 populate: 'banner'
             }
             const res = await apiGet(endpoint, params)
-            const [program] = res?.data
+            const program = res?.data
 
             if (!program) return
 

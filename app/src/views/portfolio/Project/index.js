@@ -30,7 +30,8 @@ function Project() {
             const getUserWeek = async () => {
                 const userParams = {
                     'filters[username][$eq]': username,
-                    populate: 'class,image'
+                    populate: 'class,image',
+                    'pagination[limit]': 1
                 }
                 const [users, week] = await Promise.all([apiGet('/users', userParams), apiGet(`/weeks/${weekID}`)])
                 if (!users || !users.length || !week || !week.data) {
@@ -63,12 +64,16 @@ function Project() {
             const params = {
                 'filters[user][id][$eq]': user.id,
                 'filters[week][id][$eq]': week.id,
-                populate: 'details.media'
+                populate: 'details.media',
+            }
+            const subjectParams = {
+                ...params,
+                'pagination[limit]': 1
             }
             const [stories, projects, roboticsCodings, achievements] = await Promise.all([
-                apiGet('/stories', params),
-                apiGet('/projects', params),
-                apiGet('/robotics-codings', params),
+                apiGet('/stories', subjectParams),
+                apiGet('/projects', subjectParams),
+                apiGet('/robotics-codings', subjectParams),
                 apiGet('/comments', params)
             ])
 
@@ -80,11 +85,12 @@ function Project() {
         getData()
     }, [user?.id, week?.id])
 
-    console.log(achievements)
     const renderAchievements = achievements?.map(achievement => {
         return (
             <div key={achievement.id} className="p-3">
-                <MediaPreview src={getMediaUrl(achievement?.attributes?.details?.media)} type={getMediaType(achievement?.attributes?.details?.media)} hideZoom={true} />
+                <div className="px-lg-5">
+                    <MediaPreview src={getMediaUrl(achievement?.attributes?.details?.media)} type={getMediaType(achievement?.attributes?.details?.media)} hideZoom={true} />
+                </div>
                 <Markdown rehypePlugins={[rehypeRaw]} className="text-center">{achievement.attributes?.details?.description}</Markdown>
             </div>
         )

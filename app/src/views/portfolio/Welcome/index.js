@@ -41,7 +41,8 @@ function Welcome() {
             const getUser = async () => {
                 const params = {
                     'filters[username][$eq]': username,
-                    populate: 'class,image'
+                    populate: 'class,image',
+                    'pagination[limit]': 1
                 }
                 const users = await apiGet('/users', params)
                 if (!users || !users.length) {
@@ -66,9 +67,9 @@ function Welcome() {
 
     useEffect(() => {
         const getProgram = async () => {
-            const endpoint = '/programs'
+            const endpoint = '/program'
             const res = await apiGet(endpoint)
-            const [program] = res?.data
+            const program = res?.data
 
             if (!program) {
                 toast.error('Program not found!', { theme: 'colored' })

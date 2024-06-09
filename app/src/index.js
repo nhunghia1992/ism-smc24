@@ -20,6 +20,7 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import { ROUTES } from './define';
 import Project from './views/portfolio/Project';
+import Gallery from './views/gallery/Gallery';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
@@ -41,7 +42,14 @@ export const router = createBrowserRouter([
         basePath: ROUTES.PROJECT,
         element: <Project />,
         label: 'Project'
-    }
+    },
+    {
+        path: `${ROUTES.GALLERY}/`,
+        basePath: ROUTES.GALLERY,
+        element: <Gallery />,
+        label: 'Gallery',
+        hideMenu: true
+    },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

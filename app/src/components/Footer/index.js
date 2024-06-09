@@ -34,8 +34,8 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <div className={`p-3 ${styles.footerCopyright}`}>
-                <div className="text-center text-white">
+            <div className={`p-3 text-bg-dark ${styles.footerCopyright}`}>
+                <div className="text-center">
                     Chính Sách Bảo Mật Quyền Riêng Tư
                     <span className="mx-4">|</span>
                     2024 © Bản quyền thuộc về iSMART Global Academy
