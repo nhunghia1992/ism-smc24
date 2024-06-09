@@ -1,0 +1,16 @@
+.footerInfo {
+    background-color: #ccc;
+}
+
+.footerLogo {
+    position: relative;
+    max-width: 200px;
+    background-color: #fff;
+    padding: 1.3rem;
+    margin-top: -5rem;
+    margin-bottom: 1rem;
+}
+
+.footerCopyright {
+    background-color: #333;
+}

@@ -89,12 +89,12 @@ function MediaPreview(props) {
     </>
 
     const mediaPlaceholder = <div className={`${styles.mediaPreview}`}>
-        <img className="img-fluid" src={noImg} alt="Media preview placholder" />
+        <img className={styles.mediaPreviewPlaceholder} src={noImg} alt="Media preview placholder" />
     </div>
 
     return (
         <>
-            <div className={`position-relative rounded-4 overflow-hidden ${ratio ? 'ratio ratio-' + ratio : ''}`}>
+            <div className={`position-relative rounded-4 overflow-hidden ${ratio ? 'ratio ratio-' + ratio : ''} ${styles.mediaPreviewWrapper}`}>
                 {!isZoomed ? mediaPreviewJsx : mediaPlaceholder}
                 {
                     !hideZoom &&

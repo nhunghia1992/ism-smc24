@@ -6,8 +6,11 @@ import { apiGet, getMediaType, getMediaUrl } from "../../../helpers"
 import { toast } from "react-toastify"
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
-import styles from "./index.module.css"
 import MediaPreview from "../../../components/MediaPreview"
+
+import styles from "./index.module.css"
+import portfolioStyles from "../index.module.css"
+import Footer from "../../../components/Footer"
 
 const IntroBlock = (props) => {
     const { title, description } = props
@@ -114,62 +117,66 @@ function Welcome() {
         <>
             <Header />
 
-            {/* Banner */}
-            <div className={`d-flex align-items-center justify-content-center ${styles.welcome}`}>
-                <Markdown rehypePlugins={[rehypeRaw]}>{user.portfolioWelcome}</Markdown>
+            <div className={portfolioStyles.wrapper}>
+                {/* Banner */}
+                <div className={`d-flex align-items-center justify-content-center ${styles.welcome}`}>
+                    <Markdown rehypePlugins={[rehypeRaw]}>{user.portfolioWelcome}</Markdown>
+                </div>
+
+                {/* Intro */}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6 text-center">
+                            <IntroBlock title={`GIỚI THIỆU VỀ ISMART ONLINE`} description={program.attributes?.aboutIsmart} />
+                        </div>
+                        <div className="col-lg-6 text-center">
+                            <IntroBlock title={`GIỚI THIỆU VỀ ${program.attributes?.name}`} description={program.attributes?.aboutProgram} />
+                        </div>
+                    </div>
+                </div>
+
+                {/* About */}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h2 className="text-center fw-bold">ABOUT ME</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-6">
+                            <p className="fw-bold text-uppercase">{user.name} - {user.class?.name}</p>
+                            <Markdown rehypePlugins={[rehypeRaw]}>{user.portfolioAbout}</Markdown>
+                        </div>
+                        <div className="col-lg-6">
+                            <MediaPreview src={getMediaUrl(user.image)} type={getMediaType(user.image)} />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Favorite */}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6 offset-lg-3">
+                            <h2 className="text-center fw-bold">MY FAVOURITE THINGS</h2>
+                            <Markdown rehypePlugins={[rehypeRaw]} className="text-center">{user.portfolioFavorite}</Markdown>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Activities */}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h2 className="text-center fw-bold">MY SUMMER CAMP ACTIVITIES</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        {renderActivities}
+                    </div>
+                </div>
             </div>
 
-            {/* Intro */}
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-6 text-center">
-                        <IntroBlock title={`GIỚI THIỆU VỀ ISMART ONLINE`} description={program.attributes?.aboutIsmart} />
-                    </div>
-                    <div className="col-lg-6 text-center">
-                        <IntroBlock title={`GIỚI THIỆU VỀ ${program.attributes?.name}`} description={program.attributes?.aboutProgram} />
-                    </div>
-                </div>
-            </div>
-
-            {/* About */}
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <h2 className="text-center fw-bold">ABOUT ME</h2>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-6">
-                        <p className="fw-bold text-uppercase">{user.name} - {user.class?.name}</p>
-                        <Markdown rehypePlugins={[rehypeRaw]}>{user.portfolioAbout}</Markdown>
-                    </div>
-                    <div className="col-lg-6">
-                        <MediaPreview src={getMediaUrl(user.image)} type={getMediaType(user.image)} />
-                    </div>
-                </div>
-            </div>
-
-            {/* Favorite */}
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-6 offset-lg-3">
-                        <h2 className="text-center fw-bold">MY FAVOURITE THINGS</h2>
-                        <Markdown rehypePlugins={[rehypeRaw]} className="text-center">{user.portfolioFavorite}</Markdown>
-                    </div>
-                </div>
-            </div>
-
-            {/* Activities */}
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <h2 className="text-center fw-bold">MY SUMMER CAMP ACTIVITIES</h2>
-                    </div>
-                </div>
-                <div className="row">
-                    {renderActivities}
-                </div>
-            </div>
+            <Footer />
         </>
     )
 }

@@ -1,8 +1,7 @@
 .headerLogo {
     max-width: 130px;
     background-color: #fff;
-    border-radius: 15%;
-    padding: 12%;
+    padding: 1rem;
 }
 
 @media screen and (min-width: 992px) {

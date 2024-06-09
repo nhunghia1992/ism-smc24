@@ -12,7 +12,15 @@ const CAROUSEL_SETTINGS = {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    centerMode: true
+    centerMode: true,
+    responsive: [
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 1
+            }
+        }
+    ]
 }
 
 export {

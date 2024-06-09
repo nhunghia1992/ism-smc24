@@ -31,7 +31,7 @@ function Header(props) {
             <div className="container">
                 <div className={`d-flex flex-wrap align-items-center justify-content-center`}>
                     <span onClick={() => navigate(ROUTES.HOME)} className={`d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none ${styles.logoLink}`}>
-                        <img src={logoImg} className={styles.headerLogo} alt="iSMART Online" />
+                        <img src={logoImg} className={`rounded-4 ${styles.headerLogo}`} alt="iSMART Online" />
                     </span>
 
                     {
