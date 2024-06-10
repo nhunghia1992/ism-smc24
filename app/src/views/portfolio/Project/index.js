@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { apiGet, getMediaType, getMediaUrl } from "../../../helpers"
 import { toast } from "react-toastify"
-import { CAROUSEL_SETTINGS, ROUTES } from "../../../define"
+import { API_ENDPOINTS, CAROUSEL_SETTINGS, ROUTES } from "../../../define"
 import MediaPreview from "../../../components/MediaPreview"
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
@@ -22,7 +22,7 @@ function Project() {
     const [story, setStory] = useState({})
     const [project, setProject] = useState({})
     const [roboticsCoding, setRoboticsCoding] = useState({})
-    const [achievements, setAchievements] = useState([]) // aka comment in cms
+    const [comments, setComments] = useState([]) // aka comment in cms
 
     useEffect(() => {
         if (username && weekID) {
@@ -33,7 +33,7 @@ function Project() {
                     populate: 'class,image',
                     'pagination[limit]': 1
                 }
-                const [users, week] = await Promise.all([apiGet('/users', userParams), apiGet(`/weeks/${weekID}`)])
+                const [users, week] = await Promise.all([apiGet(API_ENDPOINTS.USERS, userParams), apiGet(`${API_ENDPOINTS.WEEKS}/${weekID}`)])
                 if (!users || !users.length || !week || !week.data) {
                     toast.error('Project not found!', { theme: 'colored' })
                     return
@@ -70,28 +70,28 @@ function Project() {
                 ...params,
                 'pagination[limit]': 1
             }
-            const [stories, projects, roboticsCodings, achievements] = await Promise.all([
-                apiGet('/stories', subjectParams),
-                apiGet('/projects', subjectParams),
-                apiGet('/robotics-codings', subjectParams),
-                apiGet('/comments', params)
+            const [stories, projects, roboticsCodings, comments] = await Promise.all([
+                apiGet(API_ENDPOINTS.STORIES, subjectParams),
+                apiGet(API_ENDPOINTS.PROJECTS, subjectParams),
+                apiGet(API_ENDPOINTS.ROBOTICS_CODINGS, subjectParams),
+                apiGet(API_ENDPOINTS.COMMENTS, params)
             ])
 
             if (stories?.data?.length) setStory(stories.data[0]);
             if (projects?.data?.length) setProject(projects.data[0]);
             if (roboticsCodings?.data?.length) setRoboticsCoding(roboticsCodings.data[0]);
-            if (achievements?.data) setAchievements(achievements.data);
+            if (comments?.data) setComments(comments.data);
         }
         getData()
     }, [user?.id, week?.id])
 
-    const renderAchievements = achievements?.map(achievement => {
+    const renderComments = comments?.map(comment => {
         return (
-            <div key={achievement.id} className="p-3">
+            <div key={comment.id} className="p-3">
                 <div className="px-lg-5">
-                    <MediaPreview src={getMediaUrl(achievement?.attributes?.details?.media)} type={getMediaType(achievement?.attributes?.details?.media)} hideZoom={true} />
+                    <MediaPreview src={getMediaUrl(comment?.attributes?.details?.media)} type={getMediaType(comment?.attributes?.details?.media)} hideZoom={true} />
                 </div>
-                <Markdown rehypePlugins={[rehypeRaw]} className="text-center">{achievement.attributes?.details?.description}</Markdown>
+                <Markdown rehypePlugins={[rehypeRaw]} className="text-center">{comment.attributes?.details?.description}</Markdown>
             </div>
         )
     })
@@ -175,8 +175,8 @@ function Project() {
                     </div>
                 </div>
 
-                {/* Achievement */}
-                <div className="container-fluid">
+                {/* Achievement / Comment */}
+                <div className="container-fluid g-0">
                     <div className="row">
                         <div className="col-12">
                             <h3 className="text-center">MY ACHIEVEMENT</h3>
@@ -185,7 +185,7 @@ function Project() {
                     <div className="row">
                         <div className="col-12">
                             <Slider {...CAROUSEL_SETTINGS}>
-                                {renderAchievements}
+                                {renderComments}
                             </Slider>
                         </div>
                     </div>

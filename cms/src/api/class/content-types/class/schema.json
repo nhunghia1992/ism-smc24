@@ -18,6 +18,13 @@
     "description": {
       "type": "richtext"
     },
+    "media": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
     "users": {
       "type": "relation",
       "relation": "oneToMany",

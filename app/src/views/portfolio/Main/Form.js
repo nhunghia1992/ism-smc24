@@ -3,7 +3,7 @@ import { Input, Select } from "../../../components/Form"
 import { apiGet } from "../../../helpers"
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
-import { ROUTES } from "../../../define"
+import { API_ENDPOINTS, ROUTES } from "../../../define"
 
 function Form() {
     const [userInfo, setUserInfo] = useState({
@@ -18,7 +18,7 @@ function Form() {
 
     useEffect(() => {
         const getGrades = async () => {
-            const res = await apiGet('/grades')
+            const res = await apiGet(API_ENDPOINTS.GRADES)
             if (!res.data || !res.data.length) return
 
             const gradesMap = res.data.map(grade => {
@@ -46,7 +46,7 @@ function Form() {
             'filters[phone][$eq]': userInfo.phone,
             'filters[grade][number][$eq]': userInfo.grade
         }
-        const [user] = await apiGet('/users', params)
+        const [user] = await apiGet(API_ENDPOINTS.USERS, params)
         if (!user) {
             toast.error('Student not found!', { theme: 'colored' })
             return

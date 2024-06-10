@@ -3,16 +3,16 @@ import { apiGet, getMediaUrl } from "../../../helpers"
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
 import styles from "./Banner.module.css"
+import { API_ENDPOINTS } from "../../../define"
 
 function Banner() {
     const [program, setProgram] = useState({})
     useEffect(() => {
         const getProgram = async () => {
-            const endpoint = '/program'
             const params = {
                 populate: 'banner'
             }
-            const res = await apiGet(endpoint, params)
+            const res = await apiGet(API_ENDPOINTS.PROGRAM, params)
             const program = res?.data
 
             if (!program) return

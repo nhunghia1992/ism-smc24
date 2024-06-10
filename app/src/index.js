@@ -21,6 +21,7 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 import { ROUTES } from './define';
 import Project from './views/portfolio/Project';
 import Gallery from './views/gallery/Gallery';
+import Experience from './views/gallery/Experience';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
@@ -50,6 +51,13 @@ export const router = createBrowserRouter([
         label: 'Gallery',
         hideMenu: true
     },
+    {
+        path: `${ROUTES.EXPERIENCE}/`,
+        basePath: ROUTES.EXPERIENCE,
+        element: <Experience />,
+        label: 'Experience',
+        hideMenu: true
+    }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

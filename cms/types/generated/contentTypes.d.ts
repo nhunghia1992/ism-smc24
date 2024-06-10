@@ -817,6 +817,7 @@ export interface ApiClassClass extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     description: Attribute.RichText;
+    media: Attribute.Media<'images'>;
     users: Attribute.Relation<
       'api::class.class',
       'oneToMany',

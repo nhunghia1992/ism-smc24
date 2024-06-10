@@ -1,0 +1,17 @@
+.teacherImg {
+    object-fit: cover;
+}
+
+@media screen and (min-width: 992px) {
+    .teacherImgWrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .teacherImgWrapper {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}

@@ -1,6 +1,6 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Header from "../../../components/Header"
-import { ROUTES } from "../../../define"
+import { API_ENDPOINTS, ROUTES } from "../../../define"
 import { useEffect, useState } from "react"
 import { apiGet, getMediaType, getMediaUrl } from "../../../helpers"
 import { toast } from "react-toastify"
@@ -44,7 +44,7 @@ function Welcome() {
                     populate: 'class,image',
                     'pagination[limit]': 1
                 }
-                const users = await apiGet('/users', params)
+                const users = await apiGet(API_ENDPOINTS.USERS, params)
                 if (!users || !users.length) {
                     toast.error('Student not found!', { theme: 'colored' })
                     return
@@ -67,8 +67,7 @@ function Welcome() {
 
     useEffect(() => {
         const getProgram = async () => {
-            const endpoint = '/program'
-            const res = await apiGet(endpoint)
+            const res = await apiGet(API_ENDPOINTS.PROGRAM)
             const program = res?.data
 
             if (!program) {
@@ -83,8 +82,7 @@ function Welcome() {
 
     useEffect(() => {
         const getWeeks = async () => {
-            const endpoint = '/weeks'
-            const res = await apiGet(endpoint)
+            const res = await apiGet(API_ENDPOINTS.WEEKS)
             const weeks = res?.data
 
             if (!weeks) {
@@ -99,7 +97,6 @@ function Welcome() {
 
     const handleWeekNavigate = (weekID) => {
         localStorage.setItem('weekID', weekID)
-        navigate(`${ROUTES.PROJECT}/${user.username}/${weekID}`)
     }
 
     const renderActivities = weeks.map(week => {
@@ -107,9 +104,13 @@ function Welcome() {
             <div className="col-lg-6 mb-5 text-center" key={week.id}>
                 <p className="fw-bold">{week.attributes?.name}</p>
                 <p>{week.attributes?.description}</p>
-                <button className="btn btn-outline-dark rounded-pill px-5" onClick={() => handleWeekNavigate(week.id)}>
-                    <small>READMORE...</small>
-                </button>
+                <Link to={`${ROUTES.PROJECT}/${user.username}/${week.id}`} className="text-reset text-decoration-none">
+                    <button className="btn btn-outline-dark rounded-pill px-5" onClick={() => handleWeekNavigate(week.id)}>
+                        <small>
+                            READMORE...
+                        </small>
+                    </button>
+                </Link>
             </div>
         )
     })

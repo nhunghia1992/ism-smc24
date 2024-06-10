@@ -1,8 +1,22 @@
 const ROUTES = {
     HOME: '/',
     PORTFOLIO: '/portfolio',
-    GALLERY: '/gallery',
     PROJECT: '/project',
+    GALLERY: '/gallery',
+    EXPERIENCE: '/experience'
+}
+
+const API_ENDPOINTS = {
+    PROGRAM: '/program',
+    TEACHERS: '/teachers',
+    CLASSES: '/classes',
+    STORIES: '/stories',
+    PROJECTS: '/projects',
+    ROBOTICS_CODINGS: '/robotics-codings',
+    COMMENTS: '/comments',
+    USERS: '/users',
+    GRADES: '/grades',
+    WEEKS: '/weeks'
 }
 
 const CAROUSEL_SETTINGS = {
@@ -24,7 +38,8 @@ const CAROUSEL_SETTINGS = {
         {
             breakpoint: 576,
             settings: {
-                centerPadding: '50px'
+                centerPadding: '50px',
+                slidesToShow: 1
             }
         }
     ]
@@ -32,5 +47,6 @@ const CAROUSEL_SETTINGS = {
 
 export {
     ROUTES,
+    API_ENDPOINTS,
     CAROUSEL_SETTINGS
 }

@@ -1,33 +1,38 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
+// import { useEffect } from "react"
+import { Document, Page } from 'react-pdf'
 // import defaultImg from "../../assets/image/default-video-img.jpg"
 import noImg from "../../assets/image/no-video-img.jpg"
+
 import styles from "./index.module.css"
-import { Document, Page } from 'react-pdf'
+import 'react-responsive-modal/styles.css'
+import './modal.css'
+import { Modal } from 'react-responsive-modal'
 
 function MediaPreview(props) {
-    const { src, type, poster, ratio, hideZoom } = props
+    const { src, type, poster, ratio, hideZoom, hideBorder } = props
     const [numPages, setNumPages] = useState();
     const [isZoomed, setIsZoomed] = useState(false)
     const [documentContainerRef, setDocumentContainerRef] = useState()
     const [documentWidth, setDocumentWidth] = useState()
 
     // Start observing the element when the component is mounted
-    useEffect(() => {
-        if (!documentContainerRef) return;
+    // useEffect(() => {
+    //     if (!documentContainerRef) return;
 
-        const observer = new ResizeObserver(() => {
-            setDocumentWidth(documentContainerRef.offsetWidth - 20)
-        });
+    //     const observer = new ResizeObserver(() => {
+    //         setDocumentWidth(documentContainerRef?.offsetWidth - 20)
+    //     });
 
-        observer.observe(documentContainerRef);
-        return () => {
-            // Cleanup the observer by unobserving all elements
-            observer.unobserve(documentContainerRef);
-        };
-    }, [documentContainerRef])
+    //     observer.observe(documentContainerRef);
+    //     return () => {
+    //         // Cleanup the observer by unobserving all elements
+    //         observer.unobserve(documentContainerRef);
+    //     };
+    // }, [documentContainerRef])
 
     const onDocumentLoadSuccess = ({ numPages }) => {
-        setDocumentWidth(documentContainerRef.current?.offsetWidth - 20)
+        setDocumentWidth(documentContainerRef?.offsetWidth - 20)
         setNumPages(numPages);
     }
 
@@ -94,7 +99,7 @@ function MediaPreview(props) {
 
     return (
         <>
-            <div className={`position-relative rounded-4 overflow-hidden ${ratio ? 'ratio ratio-' + ratio : ''} ${styles.mediaPreviewWrapper}`}>
+            <div className={`position-relative rounded-4 overflow-hidden ${ratio ? 'ratio ratio-' + ratio : ''} ${!hideBorder ? styles.mediaPreviewBorder : ''}`}>
                 {!isZoomed ? mediaPreviewJsx : mediaPlaceholder}
                 {
                     !hideZoom &&
@@ -105,12 +110,11 @@ function MediaPreview(props) {
             </div>
             {
                 isZoomed &&
-                <div className={`${styles.zoomWrapper}`}>
-                    {mediaPreviewJsx}
-                    <div role="button" className={`${styles.closeZoomBtn}`} onClick={() => setIsZoomed(false)}>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="#fff"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
-                    </div>
-                </div>
+                <>
+                    <Modal open={isZoomed} onClose={() => setIsZoomed(false)} center>
+                        {mediaPreviewJsx}
+                    </Modal>
+                </>
             }
         </>
     )

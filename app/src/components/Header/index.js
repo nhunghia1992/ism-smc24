@@ -1,7 +1,9 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logoImg from "../../assets/image/ism-online-logo_300.png"
-import styles from "./index.module.css"
 import { router } from "../..";
+
+import styles from "./index.module.css"
+import "./index.css"
 
 const Logo = (props) => {
     const { hideMenu } = props
@@ -16,21 +18,10 @@ function Header(props) {
     const { hideMenu } = props
     const { routes } = router
 
-    const navigate = useNavigate()
-
-    const location = useLocation()
-    const locationBasePath = '/' + location.pathname.split('/')[1]
-
-    const handleClick = (basePath) => {
-        if (locationBasePath === basePath) return
-        navigate(basePath)
-    }
-
     const renderMenu = routes.filter(route => !route.hideMenu).map(route => {
-        const linkColorClass = locationBasePath === route.basePath ? 'text-secondary' : 'text-white'
         return (
             <li key={route.basePath}>
-                <span onClick={() => handleClick(route.basePath)} className={`nav-link px-2 ${linkColorClass}`}>{route.label}</span>
+                <NavLink to={route.basePath} className={`nav-link px-2 text-reset`}>{route.label}</NavLink>
             </li>
         )
     })
@@ -50,7 +41,6 @@ function Header(props) {
                                 {renderMenu}
                             </ul>
                         }
-
                     </div>
                 </div>
             </header>
