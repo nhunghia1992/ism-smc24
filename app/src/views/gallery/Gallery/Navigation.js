@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 import { ROUTES } from "../../../define"
 
 import styles from "./Navigation.module.css"
+import axios from "axios"
 
 function Navigation() {
     const [isShow, setIsShow] = useState(false)
@@ -11,12 +12,29 @@ function Navigation() {
     useEffect(() => {
         if (!location.hash) return;
         
-        const element = document.getElementById(location.hash.slice(1))
-        if (element) {
-            setTimeout(() => {
-                element.scrollIntoView()
-            }, 100)
+        const scrollToSection = (hash) => {
+            const element = document.getElementById(hash.slice(1))
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }, 200)
+            }
         }
+
+        scrollToSection(location.hash)
+
+        // Add a response interceptor
+        const responseInterceptor = axios.interceptors.response.use(
+            function (response) {
+                scrollToSection(location.hash)
+                return response
+            }
+        );
+
+        return () => {
+            axios.interceptors.response.eject(responseInterceptor)
+        }
+
     }, [location.hash])
 
     const sections = [

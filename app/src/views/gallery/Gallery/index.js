@@ -58,12 +58,12 @@ function Gallery() {
                 apiGet(API_ENDPOINTS.USERS, userParams)
             ])
 
-            if (program?.data) setProgram(program?.data);
-            if (teachers?.data?.length) setTeachers(teachers?.data);
-            if (classes?.data?.length) setClasses(classes?.data);
-            if (stories?.data?.length) setStories(stories?.data);
-            if (projects?.data?.length) setProjects(projects?.data);
-            if (roboticsCodings?.data?.length) setRoboticsCodings(roboticsCodings?.data);
+            if (program?.data) setProgram(program.data);
+            if (teachers?.data?.length) setTeachers(teachers.data);
+            if (classes?.data?.length) setClasses(classes.data);
+            if (stories?.data?.length) setStories(stories.data);
+            if (projects?.data?.length) setProjects(projects.data);
+            if (roboticsCodings?.data?.length) setRoboticsCodings(roboticsCodings.data);
             if (users?.length) setUsers(users);
         }
         getData()
