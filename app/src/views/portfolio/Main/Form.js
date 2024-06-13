@@ -19,7 +19,7 @@ function Form() {
     useEffect(() => {
         const getGrades = async () => {
             const res = await apiGet(API_ENDPOINTS.GRADES)
-            if (!res.data || !res.data.length) return
+            if (!res?.data || !res?.data.length) return
 
             const gradesMap = res.data.map(grade => {
                 return {
