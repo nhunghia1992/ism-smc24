@@ -1,7 +1,8 @@
 {
   "collectionName": "components_program_objectives",
   "info": {
-    "displayName": "Objective"
+    "displayName": "Objective",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,7 +10,12 @@
       "type": "string"
     },
     "description": {
-      "type": "richtext"
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

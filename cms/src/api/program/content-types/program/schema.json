@@ -16,30 +16,42 @@
       "type": "string"
     },
     "description": {
-      "type": "richtext"
-    },
-    "banner": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     },
     "portfolioTitle": {
       "type": "string"
     },
     "portfolioDescription": {
-      "type": "richtext"
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     },
     "galleryTitle": {
       "type": "string"
     },
     "galleryDescription": {
-      "type": "richtext"
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     },
     "aboutIsmart": {
-      "type": "richtext"
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     },
     "aboutIsmartVideo": {
       "type": "media",
@@ -50,7 +62,12 @@
       ]
     },
     "aboutProgram": {
-      "type": "richtext"
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     },
     "objectiveMedia": {
       "type": "media",

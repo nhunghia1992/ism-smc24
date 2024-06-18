@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { apiGet, getMediaType, getMediaUrl } from "../../../helpers"
 import { toast } from "react-toastify"
-import { API_ENDPOINTS, CAROUSEL_SETTINGS, ROUTES } from "../../../define"
+import { API_ENDPOINTS, CAROUSEL_THREE_SETTINGS, ROUTES } from "../../../define"
 import MediaPreview from "../../../components/MediaPreview"
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
@@ -91,23 +91,26 @@ function Project() {
                 <div className="px-lg-5">
                     <MediaPreview src={getMediaUrl(comment?.attributes?.details?.media)} type={getMediaType(comment?.attributes?.details?.media)} hideZoom={true} />
                 </div>
-                <Markdown rehypePlugins={[rehypeRaw]} className="text-center">{comment.attributes?.details?.description}</Markdown>
+                <Markdown rehypePlugins={[rehypeRaw]} className="mt-3 ck-content">{comment.attributes?.details?.description}</Markdown>
             </div>
         )
     })
 
     return (
-        <>
+        <div className="bg-ism bg-portfolio">
             <Header />
 
             <div className={portfolioStyles.wrapper}>
                 {/* Student info */}
-                <div className="container">
+                <div className="container py-5">
                     <div className="row">
-                        <div className="col-lg-6 d-flex align-items-center justify-content-center">
-                            <p className="fw-bold text-uppercase">{user.name} - {user.class?.name}</p>
+                        <div className="col-lg-6 d-flex align-items-center justify-content-center mb-3 mb-lg-0">
+                            <div className="text-center">
+                                <h3 className="fw-bold text-uppercase">{user.name}</h3>
+                                <h3 className="fw-bold fst-italic">{user.class?.name}</h3>
+                            </div>
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-6 mb-3 mb-lg-0">
                             <MediaPreview src={getMediaUrl(user.image)} type={getMediaType(user.image)} />
                         </div>
                     </div>
@@ -118,73 +121,73 @@ function Project() {
                     <div className="container">
                         <div className="row">
                             <div className="col-12 py-3">
-                                <h2 className="m-0">{week.attributes?.name}</h2>
+                                <h2 className="m-0 fw-bold">{week.attributes?.name}</h2>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Story */}
-                <div className="container">
+                <div className="container py-5">
                     <div className="row">
                         <div className="col-12">
-                            <h3 className="text-center">MY STORY</h3>
+                            <h3 className="text-center fw-bold mb-4">MY STORY</h3>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-6">
+                        <div className="col-lg-6 mb-3 mb-lg-0">
                             <MediaPreview src={getMediaUrl(story.attributes?.details?.media)} type={getMediaType(story.attributes?.details?.media)} ratio="16x9" />
                         </div>
-                        <div className="col-lg-6 d-flex align-items-center">
-                            <Markdown rehypePlugins={[rehypeRaw]}>{story.attributes?.details?.description}</Markdown>
+                        <div className="col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
+                            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{story.attributes?.details?.description}</Markdown>
                         </div>
                     </div>
                 </div>
 
                 {/* Project */}
-                <div className="container">
+                <div className="container py-5">
                     <div className="row">
                         <div className="col-12">
-                            <h3 className="text-center">MY SCIENCE PROJECT</h3>
+                            <h3 className="text-center fw-bold mb-4">MY SCIENCE PROJECT</h3>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-6 order-lg-2">
+                        <div className="col-lg-6 order-lg-2 mb-3 mb-lg-0">
                             <MediaPreview src={getMediaUrl(project.attributes?.details?.media)} type={getMediaType(project.attributes?.details?.media)} ratio="16x9" />
                         </div>
-                        <div className="col-lg-6 order-lg-1 d-flex align-items-center">
-                            <Markdown rehypePlugins={[rehypeRaw]}>{project.attributes?.details?.description}</Markdown>
+                        <div className="col-lg-6 order-lg-1 d-flex align-items-center mb-3 mb-lg-0">
+                            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{project.attributes?.details?.description}</Markdown>
                         </div>
                     </div>
                 </div>
 
                 {/* Robotics & Coding */}
-                <div className="container">
+                <div className="container py-5">
                     <div className="row">
                         <div className="col-12">
-                            <h3 className="text-center">MY ROBOTICS/CODING</h3>
+                            <h3 className="text-center fw-bold mb-4">MY ROBOTICS/CODING</h3>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-6">
+                        <div className="col-lg-6 mb-3 mb-lg-0">
                             <MediaPreview src={getMediaUrl(roboticsCoding.attributes?.details?.media)} type={getMediaType(roboticsCoding.attributes?.details?.media)} ratio="16x9" />
                         </div>
-                        <div className="col-lg-6 d-flex align-items-center">
-                            <Markdown rehypePlugins={[rehypeRaw]}>{roboticsCoding.attributes?.details?.description}</Markdown>
+                        <div className="col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
+                            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{roboticsCoding.attributes?.details?.description}</Markdown>
                         </div>
                     </div>
                 </div>
 
                 {/* Achievement / Comment */}
-                <div className="container-fluid g-0">
+                <div className="container-fluid g-0 py-5">
                     <div className="row">
                         <div className="col-12">
-                            <h3 className="text-center">MY ACHIEVEMENT</h3>
+                            <h3 className="text-center fw-bold mb-4">MY ACHIEVEMENT</h3>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-12">
-                            <Slider {...CAROUSEL_SETTINGS}>
+                            <Slider {...CAROUSEL_THREE_SETTINGS}>
                                 {renderComments}
                             </Slider>
                         </div>
@@ -193,7 +196,7 @@ function Project() {
             </div>
 
             <Footer />
-        </>
+        </div>
     )
 }
 

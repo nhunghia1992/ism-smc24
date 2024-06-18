@@ -1,3 +1,14 @@
-.nav-link.active {
-    color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 991px) {
+    .navbar-collapse.show {
+        position: absolute;
+        right: 0;
+        top: 60px;
+        z-index: 2;
+        min-width: 150px;
+        background-color: var(--secondary-color);
+    }
 }

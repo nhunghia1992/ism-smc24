@@ -1,6 +1,6 @@
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
-import { CAROUSEL_SETTINGS } from "../../../define"
+import { CAROUSEL_ONE_SETTINGS } from "../../../define"
 import Slider from "react-slick"
 import { getMediaUrl } from "../../../helpers"
 
@@ -24,7 +24,7 @@ function Classes(props) {
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-center">Our Classes</h2>
-                    <Slider {...CAROUSEL_SETTINGS} infinite={classes.length === 1 ? false : true}>
+                    <Slider {...CAROUSEL_ONE_SETTINGS} infinite={classes.length === 1 ? false : true}>
                         {renderClasses}
                     </Slider>
                 </div>

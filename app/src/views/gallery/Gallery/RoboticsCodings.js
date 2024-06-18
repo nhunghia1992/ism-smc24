@@ -1,6 +1,6 @@
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
-import { CAROUSEL_SETTINGS } from "../../../define"
+import { CAROUSEL_ONE_SETTINGS } from "../../../define"
 import Slider from "react-slick"
 import { getMediaType, getMediaUrl } from "../../../helpers"
 import MediaPreview from "../../../components/MediaPreview"
@@ -25,7 +25,7 @@ function RoboticsCodings(props) {
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-center">It's worth trying robotics and coding</h2>
-                    <Slider {...CAROUSEL_SETTINGS} infinite={roboticsCodings.length === 1 ? false : true}>
+                    <Slider {...CAROUSEL_ONE_SETTINGS} infinite={roboticsCodings.length === 1 ? false : true}>
                         {renderRoboticsCodings}
                     </Slider>
                 </div>

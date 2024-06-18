@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { apiGet, getMediaType, getMediaUrl } from "../../../helpers"
-import { API_ENDPOINTS, CAROUSEL_SETTINGS } from "../../../define"
+import { API_ENDPOINTS, CAROUSEL_ONE_SETTINGS } from "../../../define"
 import Banner from "../Banner"
 import Header from "../../../components/Header"
 import Navigation from "../Gallery/Navigation"
@@ -69,7 +69,7 @@ function Experience() {
     })
 
     return (
-        <>
+        <div className="bg-ism bg-gallery">
             <Header hideMenu={true} />
 
             <Navigation />
@@ -87,7 +87,7 @@ function Experience() {
                     <div className="row">
                         <div className="col-12">
                             <h3 className="text-center">Cảm nhận của Học sinh</h3>
-                            <Slider {...CAROUSEL_SETTINGS} infinite={studentComments.length === 1 ? false : true}>
+                            <Slider {...CAROUSEL_ONE_SETTINGS} infinite={studentComments.length === 1 ? false : true}>
                                 {renderStudentComments}
                             </Slider>
                         </div>
@@ -96,7 +96,7 @@ function Experience() {
                     <div className="row">
                         <div className="col-12">
                             <h3 className="text-center">Cảm nhận của Phụ huynh</h3>
-                            <Slider {...CAROUSEL_SETTINGS} infinite={parentComments.length === 1 ? false : true}>
+                            <Slider {...CAROUSEL_ONE_SETTINGS} infinite={parentComments.length === 1 ? false : true}>
                                 {renderParentComments}
                             </Slider>
                         </div>
@@ -105,7 +105,7 @@ function Experience() {
                     <div className="row">
                         <div className="col-12">
                             <h3 className="text-center">Cảm nhận của Giáo viên</h3>
-                            <Slider {...CAROUSEL_SETTINGS} infinite={teacherComments.length === 1 ? false : true}>
+                            <Slider {...CAROUSEL_ONE_SETTINGS} infinite={teacherComments.length === 1 ? false : true}>
                                 {renderTeacherComments}
                             </Slider>
                         </div>
@@ -114,7 +114,7 @@ function Experience() {
             </div>
 
             <Footer />
-        </>
+        </div>
     )
 }
 

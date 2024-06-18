@@ -79,12 +79,12 @@ function Gallery() {
     })
 
     return (
-        <>
+        <div className="bg-ism bg-gallery">
             <Header hideMenu={true} />
 
             <Navigation />
 
-            <div className={galleryStyles.wrapper}>
+            <div className={`${galleryStyles.wrapper}`}>
                 {/* Banner */}
                 <Banner program={program} />
 
@@ -137,7 +137,7 @@ function Gallery() {
             </div>
 
             <Footer />
-        </>
+        </div>
     )
 }
 

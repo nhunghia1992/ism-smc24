@@ -8,7 +8,7 @@ function Footer() {
                 <div className="text-center">
                     <img src={logoImg} className={`rounded-4 ${styles.footerLogo}`} alt="iSMART Online" />
                 </div>
-                <div className="container">
+                <div className="container py-5">
                     <div className="row">
                         <div className="col-12">
                             <p className="text-center">
@@ -16,28 +16,28 @@ function Footer() {
                             </p>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-5 offset-lg-1">
-                            Address:
+                    <div className="row text-center text-lg-start">
+                        <div className="col-lg-5 offset-lg-1 mb-3 mb-lg-0">
+                            <strong>Address:</strong>
                             <br />
                             Lầu 3, tòa nhà Quỳnh Lan, 60 Hai Bà Trưng,
                             <br />
                             Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh
                         </div>
-                        <div className="col-lg-5">
-                            Hotline: 1900 0888 93 - nhánh 2
+                        <div className="col-lg-5 offset-lg-1 mb-3 mb-lg-0">
+                            <strong>Hotline:</strong> 1900 0888 93 - nhánh 2
                             <br />
-                            Email: info@ismartonline.edu.vn
+                            <strong>Email:</strong> info@ismartonline.edu.vn
                             <br />
-                            Website: https://ismartonline.edu.vn
+                            <strong>Website:</strong> https://ismartonline.edu.vn
                         </div>
                     </div>
                 </div>
             </div>
-            <div className={`p-3 text-bg-dark ${styles.footerCopyright}`}>
+            <div className={`p-3 ${styles.footerCopyright}`}>
                 <div className="text-center">
-                    Chính Sách Bảo Mật Quyền Riêng Tư
-                    <span className="mx-4">|</span>
+                    {/* Chính Sách Bảo Mật Quyền Riêng Tư
+                    <span className="mx-4">|</span> */}
                     2024 © Bản quyền thuộc về iSMART Global Academy
                 </div>
             </div>

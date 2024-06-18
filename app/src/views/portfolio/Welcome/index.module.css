@@ -1,6 +1,9 @@
 .welcome {
-    height: 30vh;
-    background-color: #ccc;
+    padding: 3rem 1rem;
+}
+
+.introWrapper {
+    background-color: var(--secondary-bg-trans);
 }
 
 .introTitle {
@@ -8,6 +11,26 @@
     color: #fff;
 }
 
-.introTitle > * {
+.introTitle>* {
     padding: 0.5rem 1rem;
+}
+
+.activityWeekWrapper {
+    background-color: var(--secondary-bg-trans);
+}
+
+@media screen and (min-width: 768px) {
+    .welcome {
+        padding: 6rem 1rem;
+    }
+
+    .welcomeImg {
+        max-width: 75%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .welcomeImg {
+        max-width: 50%;
+    }
 }

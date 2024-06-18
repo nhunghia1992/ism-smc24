@@ -4,11 +4,11 @@ import Form from "./Form"
 
 function Main() {
     return (
-        <>
+        <div className="bg-ism bg-portfolio">
             <Header hideMenu={true} />
             <Banner />
             <Form />
-        </>
+        </div>
     )
 }
 

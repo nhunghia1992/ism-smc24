@@ -12,6 +12,8 @@ import styles from "./index.module.css"
 import portfolioStyles from "../index.module.css"
 import Footer from "../../../components/Footer"
 
+import welcomeImg from "../../../assets/image/welcome.png"
+
 const IntroBlock = (props) => {
     const { title, description } = props
     return (
@@ -22,7 +24,7 @@ const IntroBlock = (props) => {
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#fff" width={15}><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" /></svg>
                 </span>
             </p>
-            <Markdown rehypePlugins={[rehypeRaw]}>{description}</Markdown>
+            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{description}</Markdown>
         </>
     )
 }
@@ -102,52 +104,59 @@ function Welcome() {
     const renderActivities = weeks.map(week => {
         return (
             <div className="col-lg-6 mb-5 text-center" key={week.id}>
-                <p className="fw-bold">{week.attributes?.name}</p>
-                <p>{week.attributes?.description}</p>
-                <Link to={`${ROUTES.PROJECT}/${user.username}/${week.id}`} className="text-reset text-decoration-none">
-                    <button className="btn btn-outline-dark rounded-pill px-5" onClick={() => handleWeekNavigate(week.id)}>
-                        <small>
-                            READMORE...
-                        </small>
-                    </button>
-                </Link>
+                <div className={`rounded-4 px-3 py-5 ${styles.activityWeekWrapper}`}>
+                    <p className="fw-bold">{week.attributes?.name}</p>
+                    <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{week.attributes?.description}</Markdown>
+                    <Link to={`${ROUTES.PROJECT}/${user.username}/${week.id}`} className="text-reset text-decoration-none">
+                        <button className="btn btn-outline-ism rounded-pill px-5" onClick={() => handleWeekNavigate(week.id)}>
+                            <small>
+                                READMORE...
+                            </small>
+                        </button>
+                    </Link>
+                </div>
             </div>
         )
     })
 
     return (
-        <>
+        <div className="bg-ism bg-portfolio">
             <Header />
 
             <div className={portfolioStyles.wrapper}>
                 {/* Banner */}
                 <div className={`d-flex align-items-center justify-content-center ${styles.welcome}`}>
-                    <Markdown rehypePlugins={[rehypeRaw]}>{user.portfolioWelcome}</Markdown>
+                    {/* <Markdown rehypePlugins={[rehypeRaw]} className={`ck-content`}>{user.portfolioWelcome}</Markdown> */}
+                    <img src={welcomeImg} className={`img-fluid ${styles.welcomeImg}`} alt="Welcome to my portfolio" />
                 </div>
 
                 {/* Intro */}
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 text-center">
-                            <IntroBlock title={`GIỚI THIỆU VỀ ISMART ONLINE`} description={program.attributes?.aboutIsmart} />
-                        </div>
-                        <div className="col-lg-6 text-center">
-                            <IntroBlock title={`GIỚI THIỆU VỀ ${program.attributes?.name}`} description={program.attributes?.aboutProgram} />
+                <div className={styles.introWrapper}>
+                    <div className="container py-5">
+                        <div className="row">
+                            <div className="col-lg-6">
+                                <IntroBlock title={`GIỚI THIỆU VỀ ISMART ONLINE`} description={program.attributes?.aboutIsmart} />
+                            </div>
+                            <div className="col-lg-6">
+                                <IntroBlock title={`GIỚI THIỆU VỀ ${program.attributes?.name}`} description={program.attributes?.aboutProgram} />
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* About */}
-                <div className="container">
+                <div className="container py-5">
                     <div className="row">
                         <div className="col-12">
-                            <h2 className="text-center fw-bold">ABOUT ME</h2>
+                            <h2 className="text-center fw-bold mb-4">ABOUT ME</h2>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-6">
-                            <p className="fw-bold text-uppercase">{user.name} - {user.class?.name}</p>
-                            <Markdown rehypePlugins={[rehypeRaw]}>{user.portfolioAbout}</Markdown>
+                        <div className="col-lg-6 d-flex align-items-center">
+                            <div>
+                                <h4 className="fw-bold text-uppercase text-center mb-3">{user.name} - {user.class?.name}</h4>
+                                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{user.portfolioAbout}</Markdown>
+                            </div>
                         </div>
                         <div className="col-lg-6">
                             <MediaPreview src={getMediaUrl(user.image)} type={getMediaType(user.image)} />
@@ -156,20 +165,20 @@ function Welcome() {
                 </div>
 
                 {/* Favorite */}
-                <div className="container">
+                <div className="container py-5">
                     <div className="row">
                         <div className="col-lg-6 offset-lg-3">
-                            <h2 className="text-center fw-bold">MY FAVOURITE THINGS</h2>
-                            <Markdown rehypePlugins={[rehypeRaw]} className="text-center">{user.portfolioFavorite}</Markdown>
+                            <h2 className="text-center fw-bold mb-4">MY FAVOURITE THINGS</h2>
+                            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{user.portfolioFavorite}</Markdown>
                         </div>
                     </div>
                 </div>
 
                 {/* Activities */}
-                <div className="container">
+                <div className="container py-5">
                     <div className="row">
                         <div className="col-12">
-                            <h2 className="text-center fw-bold">MY SUMMER CAMP ACTIVITIES</h2>
+                            <h2 className="text-center fw-bold mb-4">MY SUMMER CAMP ACTIVITIES</h2>
                         </div>
                     </div>
                     <div className="row">
@@ -179,7 +188,7 @@ function Welcome() {
             </div>
 
             <Footer />
-        </>
+        </div>
     )
 }
 

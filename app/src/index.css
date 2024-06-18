@@ -2,6 +2,8 @@
     --main-color: #FA450F;
     --main-color-lighter: #fd7b54;
     --secondary-color: #224082;
+    --secondary-bg-trans: rgb(14 31 69 / 65%);
+    --bg-url: url(./assets/image/bg-portfolio.jpg);
 }
 
 body,
@@ -10,10 +12,39 @@ html {
 }
 
 #root {
-    /* background-image: url(./assets/image/bg.jpg); */
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bg-ism {
+    background-image: var(--bg-url);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* color: #fff; */
-    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+}
+
+.bg-portfolio {
+    --bg-url: url(./assets/image/bg-portfolio.jpg);
+}
+
+.bg-gallery {
+    --bg-url: url(./assets/image/bg-gallery.jpg);
+}
+
+.btn-outline-ism {
+    --bs-btn-color: #f8f9fa;
+    --bs-btn-border-color: #f8f9fa;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--main-color);
+    --bs-btn-hover-border-color: var(--main-color);
+    --bs-btn-focus-shadow-rgb: 248, 249, 250;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #f8f9fa;
+    --bs-btn-active-border-color: #f8f9fa;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #f8f9fa;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #f8f9fa;
+    --bs-gradient: none;
 }

@@ -1,3 +1,4 @@
 .weekTitle {
-    background-color: #ccc;
+    color: var(--main-color);
+    background-color: var(--secondary-bg-trans);
 }

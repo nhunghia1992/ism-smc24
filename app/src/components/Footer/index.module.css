@@ -1,5 +1,5 @@
 .footerInfo {
-    background-color: #ccc;
+    background-color: var(--secondary-bg-trans);
 }
 
 .footerLogo {
@@ -11,6 +11,6 @@
     margin-bottom: 1rem;
 }
 
-/* .footerCopyright {
-    background-color: #333;
-} */
+.footerCopyright {
+    background-color: var(--main-color);
+}

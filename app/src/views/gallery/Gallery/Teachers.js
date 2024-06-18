@@ -1,6 +1,6 @@
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
-import { CAROUSEL_SETTINGS } from "../../../define"
+import { CAROUSEL_THREE_SETTINGS } from "../../../define"
 import Slider from "react-slick"
 import { getMediaUrl } from "../../../helpers"
 
@@ -28,7 +28,7 @@ function Teachers(props) {
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-center">Our Teachers</h2>
-                    <Slider {...CAROUSEL_SETTINGS} slidesToShow={2} infinite={teachers.length === 1 ? false : true}>
+                    <Slider {...CAROUSEL_THREE_SETTINGS} slidesToShow={2} infinite={teachers.length === 1 ? false : true}>
                         {renderTeachers}
                     </Slider>
                 </div>

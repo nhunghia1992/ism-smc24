@@ -51,7 +51,7 @@ function Form() {
             toast.error('Student not found!', { theme: 'colored' })
             return
         }
-        
+
         if (!user.username) {
             toast.error('Username not found!', { theme: 'colored' })
             return
@@ -61,30 +61,32 @@ function Form() {
         navigate(`${ROUTES.PORTFOLIO}/${user.username}`)
     }
     return (
-        <div className="container">
+        <div className="container pb-5">
             <div className="row">
                 <div className="col-lg-6 offset-lg-3">
                     <form onSubmit={handleSubmit}>
                         <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label text-end">Full name</label>
+                            <label className="col-sm-4 col-form-label text-sm-end">Full name</label>
                             <div className="col-sm-8">
                                 <Input type="text" name="name" value={userInfo.name} onChange={handleChange} required={true} />
                             </div>
                         </div>
                         <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label text-end">Parent's phone</label>
+                            <label className="col-sm-4 col-form-label text-sm-end">Parent's phone</label>
                             <div className="col-sm-8">
                                 <Input type="tel" name="phone" value={userInfo.phone} onChange={handleChange} required={true} />
                             </div>
                         </div>
-                        <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label text-end">Grade</label>
+                        <div className="row mb-5 mb-lg-3">
+                            <label className="col-sm-4 col-form-label text-sm-end">Grade</label>
                             <div className="col-sm-8">
                                 <Select name="grade" value={userInfo.grade} onChange={handleChange} options={grades} required={true} />
                             </div>
                         </div>
-                        <div className="row mb-3">
-                            <button type="submit" className="btn btn-primary">CONTINUE</button>
+                        <div className="row">
+                            <div className="col-12">
+                                <button type="submit" className="btn btn-primary rounded-pill w-100">CONTINUE</button>
+                            </div>
                         </div>
                     </form>
                 </div>

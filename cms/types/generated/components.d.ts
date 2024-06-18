@@ -4,10 +4,18 @@ export interface ProgramObjective extends Schema.Component {
   collectionName: 'components_program_objectives';
   info: {
     displayName: 'Objective';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
-    description: Attribute.RichText;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
   };
 }
 
@@ -19,7 +27,14 @@ export interface SubjectDetails extends Schema.Component {
   };
   attributes: {
     name: Attribute.String;
-    description: Attribute.RichText;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
     media: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     featured: Attribute.Boolean & Attribute.DefaultTo<false>;
     featuredOrder: Attribute.Integer &

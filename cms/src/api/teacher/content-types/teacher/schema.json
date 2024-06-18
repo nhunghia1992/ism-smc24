@@ -15,7 +15,12 @@
       "type": "string"
     },
     "description": {
-      "type": "richtext"
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     },
     "media": {
       "allowedTypes": [

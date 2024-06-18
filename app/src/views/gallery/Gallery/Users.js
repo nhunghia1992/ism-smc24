@@ -1,6 +1,6 @@
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
-import { CAROUSEL_SETTINGS, ROUTES } from "../../../define"
+import { CAROUSEL_THREE_SETTINGS, ROUTES } from "../../../define"
 import Slider from "react-slick"
 import { getMediaUrl } from "../../../helpers"
 import { useNavigate } from "react-router-dom"
@@ -49,7 +49,7 @@ function Users(props) {
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-center">Stemverse Kids</h2>
-                    <Slider {...CAROUSEL_SETTINGS} infinite={users.length === 1 ? false : true}>
+                    <Slider {...CAROUSEL_THREE_SETTINGS} infinite={users.length === 1 ? false : true}>
                         {renderUsers}
                     </Slider>
                 </div>

@@ -8,7 +8,7 @@ function Select(props) {
         )
     })
     return (
-        <select className={`form-select ${formStyles.customInput}`} {...props}>
+        <select className={`form-select rounded-pill ${formStyles.customInput}`} {...props}>
             <option value=""></option>
             {renderOptions}
         </select>
