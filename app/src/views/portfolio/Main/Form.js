@@ -77,14 +77,14 @@ function Form() {
                                 <Input type="tel" name="phone" value={userInfo.phone} onChange={handleChange} required={true} />
                             </div>
                         </div>
-                        <div className="row mb-5 mb-lg-3">
+                        <div className="row mb-5 mb-sm-3">
                             <label className="col-sm-4 col-form-label text-sm-end">Grade</label>
                             <div className="col-sm-8">
                                 <Select name="grade" value={userInfo.grade} onChange={handleChange} options={grades} required={true} />
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-12">
+                            <div className="col-sm-8 offset-sm-4">
                                 <button type="submit" className="btn btn-primary rounded-pill w-100">CONTINUE</button>
                             </div>
                         </div>

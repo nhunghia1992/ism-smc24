@@ -12,23 +12,23 @@ function Teachers(props) {
     const renderTeachers = teachers.map(teacher => {
         return (
             <div key={teacher.id} className="text-center p-3">
-                <div className={`${styles.teacherImgWrapper}`}>
+                <div className={`mb-3 ${styles.teacherImgWrapper}`}>
                     <div className={`ratio ratio-1x1`}>
                         <img src={getMediaUrl(teacher.attributes?.media)} className={`img-fluid rounded-circle ${styles.teacherImg}`} alt="Teacher" />
                     </div>
                 </div>
-                <p>{teacher.attributes?.name}</p>
-                <Markdown rehypePlugins={[rehypeRaw]}>{teacher.attributes?.description}</Markdown>
+                <p className="mb-2 fs-5">{teacher.attributes?.name}</p>
+                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{teacher.attributes?.description}</Markdown>
             </div>
         )
     })
 
     return (
-        <div className="container-fluid g-0" id="teachers">
+        <div className="container-fluid py-5 g-0" id="teachers">
             <div className="row">
                 <div className="col-12">
-                    <h2 className="text-center">Our Teachers</h2>
-                    <Slider {...CAROUSEL_THREE_SETTINGS} slidesToShow={2} infinite={teachers.length === 1 ? false : true}>
+                    <h2 className="text-center fw-bold mb-4">Our Teachers</h2>
+                    <Slider {...CAROUSEL_THREE_SETTINGS} infinite={teachers.length === 1 ? false : true}>
                         {renderTeachers}
                     </Slider>
                 </div>

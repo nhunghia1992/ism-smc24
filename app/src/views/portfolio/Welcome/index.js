@@ -105,7 +105,7 @@ function Welcome() {
         return (
             <div className="col-lg-6 mb-5 text-center" key={week.id}>
                 <div className={`rounded-4 px-3 py-5 ${styles.activityWeekWrapper}`}>
-                    <p className="fw-bold">{week.attributes?.name}</p>
+                    <p className="fw-bold fs-5">{week.attributes?.name}</p>
                     <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{week.attributes?.description}</Markdown>
                     <Link to={`${ROUTES.PROJECT}/${user.username}/${week.id}`} className="text-reset text-decoration-none">
                         <button className="btn btn-outline-ism rounded-pill px-5" onClick={() => handleWeekNavigate(week.id)}>

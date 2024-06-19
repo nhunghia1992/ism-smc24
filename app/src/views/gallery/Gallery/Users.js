@@ -6,6 +6,8 @@ import { getMediaUrl } from "../../../helpers"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
+import styles from "./User.module.css"
+
 function Users(props) {
     const { users } = props
 
@@ -28,27 +30,27 @@ function Users(props) {
     const renderUsers = users.map(user => {
         return (
             <div key={user.id} className="text-center p-3">
-                <p>{user.name} - {user.class?.name}</p>
-                <div className="px-lg-5">
+                <p className="fs-5">{user.name} - {user.class?.name}</p>
+                <div className="px-lg-5 mb-4">
                     <img
                         onMouseDown={handleMouseDown}
                         onMouseMove={handleMouseMove}
                         onMouseUp={() => handleMouseUp(user.username)}
                         src={getMediaUrl(user.image)}
-                        className={`w-100 m-auto rounded-5`}
-                        alt="User"
+                        className={`w-100 m-auto rounded-4 ${styles.userImg}`}
+                        alt={`${user.name} - ${user.class?.name} portfolio`}
                     />
                 </div>
-                <Markdown rehypePlugins={[rehypeRaw]}>{user.portfolioAbout}</Markdown>
+                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{user.portfolioAbout}</Markdown>
             </div>
         )
     })
 
     return (
-        <div className="container-fluid g-0" id="users">
+        <div className="container-fluid py-5 g-0" id="users">
             <div className="row">
                 <div className="col-12">
-                    <h2 className="text-center">Stemverse Kids</h2>
+                    <h2 className="text-center fw-bold mb-4">Stemverse Kids</h2>
                     <Slider {...CAROUSEL_THREE_SETTINGS} infinite={users.length === 1 ? false : true}>
                         {renderUsers}
                     </Slider>

@@ -11,20 +11,20 @@ function Projects(props) {
     const renderProjects = projects.map(project => {
         return (
             <div key={project.id} className="text-center p-3">
-                <div className="px-lg-5">
+                <div className="px-lg-5 mb-4">
                     <MediaPreview src={getMediaUrl(project.attributes?.details?.media)} type={getMediaType(project.attributes?.details?.media)} ratio="16x9" />
                 </div>
-                <p>{project.attributes?.user?.data?.attributes?.name} - {project.attributes?.user?.data?.attributes?.class?.data?.attributes?.name}</p>
-                <Markdown rehypePlugins={[rehypeRaw]}>{project.attributes?.details?.description}</Markdown>
+                <p className="fs-5">{project.attributes?.user?.data?.attributes?.name} - {project.attributes?.user?.data?.attributes?.class?.data?.attributes?.name}</p>
+                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{project.attributes?.details?.description}</Markdown>
             </div>
         )
     })
 
     return (
-        <div className="container-fluid g-0" id="projects">
+        <div className="container-fluid py-5 g-0" id="projects">
             <div className="row">
                 <div className="col-12">
-                    <h2 className="text-center">Let's see our amazing projects</h2>
+                    <h2 className="text-center fw-bold mb-4">Let's see our amazing projects</h2>
                     <Slider {...CAROUSEL_ONE_SETTINGS} infinite={projects.length === 1 ? false : true}>
                         {renderProjects}
                     </Slider>

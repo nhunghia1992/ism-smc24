@@ -1,4 +1,19 @@
 .banner {
-    min-height: 40vh;
-    background-color: #ccc;
+    padding: 3rem 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .banner {
+        padding: 6rem 1rem;
+    }
+
+    .bannerImg {
+        max-width: 75%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .bannerImg {
+        max-width: 50%;
+    }
 }

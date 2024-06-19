@@ -187,7 +187,7 @@ function Project() {
                     </div>
                     <div className="row">
                         <div className="col-12">
-                            <Slider {...CAROUSEL_THREE_SETTINGS}>
+                            <Slider {...CAROUSEL_THREE_SETTINGS} infinite={comments.length === 1 ? false : true}>
                                 {renderComments}
                             </Slider>
                         </div>

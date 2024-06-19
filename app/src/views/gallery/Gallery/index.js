@@ -72,8 +72,8 @@ function Gallery() {
     const renderObjectives = program?.attributes?.objectives.map(objective => {
         return (
             <div key={objective.id}>
-                <p className="mb-2">{objective.title}</p>
-                <Markdown rehypePlugins={[rehypeRaw]}>{objective.description}</Markdown>
+                <p className="mb-2 fs-5">{objective.title}</p>
+                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{objective.description}</Markdown>
             </div>
         )
     })
@@ -86,26 +86,26 @@ function Gallery() {
 
             <div className={`${galleryStyles.wrapper}`}>
                 {/* Banner */}
-                <Banner program={program} />
+                <Banner />
 
                 {/* About */}
-                <div className="container" id="about">
+                <div className="container py-5" id="about">
                     <div className="row">
                         <div className="col-12 text-center">
-                            <h2>About ISMART ONLINE</h2>
-                            <Markdown rehypePlugins={[rehypeRaw]}>{program?.attributes?.aboutIsmart}</Markdown>
+                            <h2 className="fw-bold mb-4">About ISMART ONLINE</h2>
+                            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{program?.attributes?.aboutIsmart}</Markdown>
                             <MediaPreview src={getMediaUrl(program?.attributes?.aboutIsmartVideo)} type={getMediaType(program?.attributes?.aboutIsmartVideo)} hideZoom={true} hideBorder={true} />
                         </div>
                     </div>
                 </div>
 
                 {/* Objectives */}
-                <div className="container" id="objectives">
+                <div className="container py-5" id="objectives">
                     <div className="row align-items-center">
                         <div className="col-lg-6 order-lg-2">
-                            <h2>
+                            <h2 className="fw-bold mb-4">
                                 Objectives<br />
-                                Mục tiêu của SUMMER CAMP
+                                <em>Mục tiêu của SUMMER CAMP</em>
                             </h2>
                             <div>
                                 {renderObjectives}

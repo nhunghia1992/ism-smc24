@@ -11,20 +11,20 @@ function Stories(props) {
     const renderStories = stories.map(story => {
         return (
             <div key={story.id} className="text-center p-3">
-                <div className="px-lg-5">
+                <div className="px-lg-5 mb-4">
                     <MediaPreview src={getMediaUrl(story.attributes?.details?.media)} type={getMediaType(story.attributes?.details?.media)} ratio="16x9" />
                 </div>
-                <p>{story.attributes?.user?.data?.attributes?.name} - {story.attributes?.user?.data?.attributes?.class?.data?.attributes?.name}</p>
-                <Markdown rehypePlugins={[rehypeRaw]}>{story.attributes?.details?.description}</Markdown>
+                <p className="fs-5">{story.attributes?.user?.data?.attributes?.name} - {story.attributes?.user?.data?.attributes?.class?.data?.attributes?.name}</p>
+                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{story.attributes?.details?.description}</Markdown>
             </div>
         )
     })
 
     return (
-        <div className="container-fluid g-0" id="stories">
+        <div className="container-fluid py-5 g-0" id="stories">
             <div className="row">
                 <div className="col-12">
-                    <h2 className="text-center">Enjoy Our Stories</h2>
+                    <h2 className="text-center fw-bold mb-4">Enjoy Our Stories</h2>
                     <Slider {...CAROUSEL_ONE_SETTINGS} infinite={stories.length === 1 ? false : true}>
                         {renderStories}
                     </Slider>

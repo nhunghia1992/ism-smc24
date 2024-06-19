@@ -1,20 +1,19 @@
-.mainImg {
+.main {
     padding: 3rem 1rem;
-    width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-    .welcome {
+    .main {
         padding: 6rem 1rem;
     }
 
     .mainImg {
-        max-width: 75%;
+        max-width: 65%;
     }
 }
 
 @media screen and (min-width: 1200px) {
     .mainImg {
-        max-width: 50%;
+        max-width: 38%;
     }
 }

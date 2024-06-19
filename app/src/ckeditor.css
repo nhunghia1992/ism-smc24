@@ -143,6 +143,7 @@
 
 /* @ckeditor/ckeditor5-list/theme/todolist.css */
 .ck-content .todo-list .todo-list__label>input {
+    appearance: none;
     -webkit-appearance: none;
     display: inline-block;
     position: relative;
@@ -229,6 +230,7 @@
 
 /* @ckeditor/ckeditor5-list/theme/todolist.css */
 .ck-editor__editable.ck-content .todo-list .todo-list__label>span[contenteditable=false]>input {
+    appearance: none;
     -webkit-appearance: none;
     display: inline-block;
     position: relative;
