@@ -14,8 +14,7 @@ import Footer from "../../../components/Footer"
 
 import welcomeImg from "../../../assets/image/welcome.png"
 
-const IntroBlock = (props) => {
-    const { title, description } = props
+const IntroBlock = ({ title, description }) => {
     return (
         <>
             <p className={`rounded-pill d-flex align-items-center justify-content-between ${styles.introTitle}`}>

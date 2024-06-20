@@ -5,9 +5,7 @@ import Slider from "react-slick"
 import { getMediaType, getMediaUrl } from "../../../helpers"
 import MediaPreview from "../../../components/MediaPreview"
 
-function RoboticsCodings(props) {
-    const { roboticsCodings } = props
-
+function RoboticsCodings({ roboticsCodings }) {
     const renderRoboticsCodings = roboticsCodings.map(roboticsCoding => {
         return (
             <div key={roboticsCoding.id} className="text-center p-3">

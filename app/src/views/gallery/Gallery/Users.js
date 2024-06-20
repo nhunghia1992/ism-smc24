@@ -8,9 +8,7 @@ import { useState } from "react"
 
 import styles from "./User.module.css"
 
-function Users(props) {
-    const { users } = props
-
+function Users({ users }) {
     const [isMouseMoving, setIsMouseMoving] = useState(false)
     const navigate = useNavigate()
 

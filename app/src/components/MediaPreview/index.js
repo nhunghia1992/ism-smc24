@@ -9,8 +9,7 @@ import 'react-responsive-modal/styles.css'
 import './modal.css'
 import { Modal } from 'react-responsive-modal'
 
-function MediaPreview(props) {
-    const { src, type, poster, ratio, hideZoom, hideBorder } = props
+function MediaPreview({ src, type, poster, ratio, hideZoom, hideBorder }) {
     const [numPages, setNumPages] = useState();
     const [isZoomed, setIsZoomed] = useState(false)
     const [documentContainerRef, setDocumentContainerRef] = useState()

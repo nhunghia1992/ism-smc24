@@ -6,9 +6,7 @@ import { getMediaUrl } from "../../../helpers"
 
 import styles from "./Teachers.module.css"
 
-function Teachers(props) {
-    const { teachers } = props
-
+function Teachers({ teachers }) {
     const renderTeachers = teachers.map(teacher => {
         return (
             <div key={teacher.id} className="text-center p-3">

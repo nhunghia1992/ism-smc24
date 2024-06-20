@@ -4,9 +4,7 @@ import { CAROUSEL_ONE_SETTINGS } from "../../../define"
 import Slider from "react-slick"
 import { getMediaUrl } from "../../../helpers"
 
-function Classes(props) {
-    const { classes } = props
-
+function Classes({ classes }) {
     const renderClasses = classes.map(classItem => {
         return (
             <div key={classItem.id} className="text-center p-3">

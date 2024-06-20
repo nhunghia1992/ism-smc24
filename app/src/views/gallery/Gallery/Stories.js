@@ -5,9 +5,7 @@ import Slider from "react-slick"
 import { getMediaType, getMediaUrl } from "../../../helpers"
 import MediaPreview from "../../../components/MediaPreview"
 
-function Stories(props) {
-    const { stories } = props
-
+function Stories({ stories }) {
     const renderStories = stories.map(story => {
         return (
             <div key={story.id} className="text-center p-3">

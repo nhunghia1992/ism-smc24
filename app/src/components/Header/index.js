@@ -6,8 +6,7 @@ import styles from "./index.module.css"
 import "./index.css"
 import { useState } from "react";
 
-const Logo = (props) => {
-    const { hideMenu } = props
+const Logo = ({ hideMenu }) => {
     return (
         <span className={`d-flex align-items-center text-white text-decoration-none ${styles.logoLink} ${hideMenu ? styles.noMenu : ''}`}>
             <img src={logoImg} className={`rounded-4 ${styles.headerLogo}`} alt="iSMART Online" />
@@ -15,8 +14,7 @@ const Logo = (props) => {
     )
 }
 
-function Header(props) {
-    const { hideMenu } = props
+function Header({ hideMenu }) {
     const { routes } = router
     const [isShowDropdown, setIsShowDropdown] = useState(false)
 
@@ -43,7 +41,7 @@ function Header(props) {
                                 <button className="navbar-toggler" type="button" onClick={() => setIsShowDropdown(!isShowDropdown)}>
                                     <span className="navbar-toggler-icon"></span>
                                 </button>
-                                <div className={`collapse navbar-collapse px-2 rounded-4 text-center ${isShowDropdown ? 'show' : ''}`}>
+                                <div className={`collapse navbar-collapse px-2 rounded-3 text-center ${isShowDropdown ? 'show' : ''}`}>
                                     <ul className="navbar-nav">
                                         {renderMenu}
                                     </ul>

@@ -12,8 +12,7 @@ import Footer from "../../../components/Footer"
 
 import galleryStyles from "../index.module.css"
 
-const Comment = (props) => {
-    const { comment } = props
+const Comment = ({ comment }) => {
     return (
         <div className="p-3">
             <div className="px-lg-5 mb-4">
