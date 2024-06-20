@@ -1,0 +1,19 @@
+.certificate {
+    padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .certificate {
+        padding: 3rem 1rem;
+    }
+
+    .certificateTitle {
+        max-width: 75%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .certificateTitle {
+        max-width: 50%;
+    }
+}

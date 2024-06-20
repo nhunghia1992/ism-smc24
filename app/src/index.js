@@ -23,6 +23,7 @@ import { ROUTES } from './define';
 import Project from './views/portfolio/Project';
 import Gallery from './views/gallery/Gallery';
 import Experience from './views/gallery/Experience';
+import Certificate from './views/portfolio/Certificate';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
@@ -58,6 +59,12 @@ export const router = createBrowserRouter([
         element: <Experience />,
         label: 'Experience',
         hideMenu: true
+    },
+    {
+        path: `${ROUTES.CERTIFICATE}/:username?`,
+        basePath: ROUTES.CERTIFICATE,
+        element: <Certificate />,
+        label: 'Certificate'
     }
 ])
 

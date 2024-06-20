@@ -3,7 +3,8 @@ const ROUTES = {
     PORTFOLIO: '/portfolio',
     PROJECT: '/project',
     GALLERY: '/gallery',
-    EXPERIENCE: '/experience'
+    EXPERIENCE: '/experience',
+    CERTIFICATE: '/certificate'
 }
 
 const API_ENDPOINTS = {
