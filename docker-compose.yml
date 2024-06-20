@@ -28,3 +28,5 @@ services:
     ports:
       - ${DATABASE_PORT}:3306
     restart: always
+    profiles:
+      - database
