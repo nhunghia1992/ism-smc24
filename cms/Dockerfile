@@ -15,6 +15,7 @@ COPY ./src ./src
 COPY ./types ./types
 COPY ./.env* ./
 COPY ./tsconfig.json ./tsconfig.json
+COPY ./favicon.png ./favicon.png
 
 # build admin
 RUN ENV_PATH=/cms/.env.production npm run build --clean
