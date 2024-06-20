@@ -85,6 +85,15 @@ function Project() {
         getData()
     }, [user?.id, week?.id])
 
+    useEffect(() => {
+        const element = document.querySelector('.bg-portfolio')
+        if (element) {
+            setTimeout(() => {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }, 100)
+        }
+    }, [])
+
     const renderComments = comments?.map(comment => {
         return (
             <div key={comment.id} className="p-3">
