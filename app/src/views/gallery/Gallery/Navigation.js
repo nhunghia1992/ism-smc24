@@ -87,8 +87,9 @@ function Navigation() {
                     </button>
                     <div className="container">
                         <div className="row align-items-center justify-content-center align-content-center h-100">
-                            <div className="col-lg-5">
-                                <div className={`text-center fw-bold display-2`}>Our Tour</div>
+                            <div className="col-lg-5 text-center">
+                                <div className={`fw-bold display-2 mb-3`}>Our Tour</div>
+                                <Link to={ROUTES.PORTFOLIO} onClick={() => setIsShow(false)} className="text-reset fs-4">My Portfolio</Link>
                             </div>
                             <div className="col-lg-2">
                                 <div className={styles.navigationSeperator}></div>

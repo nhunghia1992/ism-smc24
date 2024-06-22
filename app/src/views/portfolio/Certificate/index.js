@@ -98,6 +98,15 @@ function Certificate() {
         }
     }, [username, navigate])
 
+    useEffect(() => {
+        const element = document.querySelector('.bg-portfolio')
+        if (element) {
+            setTimeout(() => {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }, 100)
+        }
+    }, [])
+
     return (
         <div className="bg-ism bg-portfolio">
             <Header />

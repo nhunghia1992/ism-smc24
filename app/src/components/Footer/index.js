@@ -25,9 +25,9 @@ function Footer() {
                             Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh
                         </div>
                         <div className="col-lg-5 offset-lg-1 mb-3 mb-lg-0">
-                            <strong>Hotline:</strong> 1900 0888 93 - nhánh 2
+                            <strong>Hotline:</strong> <a href="tel:1900088893" className="text-reset">1900 0888 93</a> - nhánh 2
                             <br />
-                            <strong>Email:</strong> info@ismartonline.edu.vn
+                            <strong>Email:</strong> <a href="mailto:info@ismartonline.edu.vn" className="text-reset">info@ismartonline.edu.vn</a>
                             <br />
                             <strong>Website:</strong> <a href="https://ismartonline.edu.vn" target="_blank" rel="noreferrer" className="text-reset">https://ismartonline.edu.vn</a>
                         </div>

@@ -26,7 +26,7 @@ function Teachers({ teachers }) {
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-center fw-bold mb-4">Our Teachers</h2>
-                    <Slider {...CAROUSEL_THREE_SETTINGS} infinite={teachers.length === 1 ? false : true}>
+                    <Slider {...CAROUSEL_THREE_SETTINGS} infinite={teachers.length === 1 ? false : true} autoplay={true} pauseOnHover={false}>
                         {renderTeachers}
                     </Slider>
                 </div>

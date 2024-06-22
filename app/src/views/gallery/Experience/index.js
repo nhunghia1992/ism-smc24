@@ -44,7 +44,14 @@ function Experience() {
         getData()
     }, [])
 
-    console.log(comments)
+    useEffect(() => {
+        const element = document.querySelector('.bg-gallery')
+        if (element) {
+            setTimeout(() => {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }, 100)
+        }
+    }, [])
 
     const studentComments = comments.filter(comment => comment.attributes?.group === 'student')
     const renderStudentComments = studentComments.map(comment => {

@@ -96,6 +96,15 @@ function Welcome() {
         getWeeks()
     }, [])
 
+    useEffect(() => {
+        const element = document.querySelector('.bg-portfolio')
+        if (element) {
+            setTimeout(() => {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }, 100)
+        }
+    }, [])
+
     const handleWeekNavigate = (weekID) => {
         localStorage.setItem('weekID', weekID)
     }

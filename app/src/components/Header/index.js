@@ -1,22 +1,38 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logoImg from "../../assets/image/ism-online-logo_300.png"
 import { router } from "../..";
 
 import styles from "./index.module.css"
 import "./index.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ROUTES } from "../../define";
 
 const Logo = ({ hideMenu }) => {
     return (
-        <span className={`d-flex align-items-center text-white text-decoration-none ${styles.logoLink} ${hideMenu ? styles.noMenu : ''}`}>
-            <img src={logoImg} className={`rounded-4 ${styles.headerLogo}`} alt="iSMART Online" />
-        </span>
+        <Link to={ROUTES.GALLERY}>
+            <span className={`d-flex align-items-center text-white text-decoration-none ${styles.logoLink} ${hideMenu ? styles.noMenu : ''}`}>
+                <img src={logoImg} className={`rounded-4 ${styles.headerLogo}`} alt="iSMART Online" />
+            </span>
+        </Link>
     )
 }
 
 function Header({ hideMenu }) {
     const { routes } = router
+    const [username, setUsername] = useState('')
     const [isShowDropdown, setIsShowDropdown] = useState(false)
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const localUsername = localStorage.getItem('username')
+        if (localUsername) setUsername(localUsername)
+    }, [])
+
+    const handleLogout = () => {
+        localStorage.removeItem('username')
+        navigate(ROUTES.HOME)
+    }
 
     const renderMenu = routes.filter(route => !route.hideMenu).map(route => {
         return (
@@ -47,6 +63,15 @@ function Header({ hideMenu }) {
                                     </ul>
                                 </div>
                             </nav>
+                        }
+
+                        {
+                            username &&
+                            <ul className="navbar-nav">
+                                <li className="nav-item">
+                                    <span className="nav-link" role="button" onClick={handleLogout}>Logout</span>
+                                </li>
+                            </ul>
                         }
                     </div>
                 </div>

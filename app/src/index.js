@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         path: ROUTES.HOME,
         basePath: ROUTES.HOME,
         element: <Main />,
-        label: 'Trang chủ'
+        label: 'Home'
     },
     {
         path: `${ROUTES.PORTFOLIO}/:username?`,
