@@ -9,13 +9,13 @@ import styles from "./Teachers.module.css"
 function Teachers({ teachers }) {
     const renderTeachers = teachers.map(teacher => {
         return (
-            <div key={teacher.id} className="text-center p-3">
+            <div key={teacher.id} className="p-3">
                 <div className={`mb-3 ${styles.teacherImgWrapper}`}>
                     <div className={`ratio ratio-1x1`}>
                         <img src={getMediaUrl(teacher.attributes?.media)} className={`img-fluid rounded-circle ${styles.teacherImg}`} alt="Teacher" />
                     </div>
                 </div>
-                <p className="mb-2 fs-5">{teacher.attributes?.name}</p>
+                <p className="mb-2 fs-5 text-center">{teacher.attributes?.name}</p>
                 <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{teacher.attributes?.description}</Markdown>
             </div>
         )

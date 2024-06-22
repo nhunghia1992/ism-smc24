@@ -102,17 +102,19 @@ function Welcome() {
 
     const renderActivities = weeks.map(week => {
         return (
-            <div className="col-lg-6 mb-5 text-center" key={week.id}>
+            <div className="col-lg-6 mb-5" key={week.id}>
                 <div className={`rounded-4 px-3 py-5 ${styles.activityWeekWrapper}`}>
-                    <p className="fw-bold fs-5">{week.attributes?.name}</p>
+                    <p className="fw-bold fs-5 text-center">{week.attributes?.name}</p>
                     <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{week.attributes?.description}</Markdown>
-                    <Link to={`${ROUTES.PROJECT}/${user.username}/${week.id}`} className="text-reset text-decoration-none">
-                        <button className="btn btn-outline-ism rounded-pill px-5" onClick={() => handleWeekNavigate(week.id)}>
-                            <small>
-                                READMORE...
-                            </small>
-                        </button>
-                    </Link>
+                    <div className="text-center">
+                        <Link to={`${ROUTES.PROJECT}/${user.username}/${week.id}`} className="text-reset text-decoration-none">
+                            <button className="btn btn-outline-ism rounded-pill px-5" onClick={() => handleWeekNavigate(week.id)}>
+                                <small>
+                                    READMORE...
+                                </small>
+                            </button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         )
@@ -152,7 +154,7 @@ function Welcome() {
                     </div>
                     <div className="row">
                         <div className="col-lg-6 d-flex align-items-center">
-                            <div>
+                            <div className="flex-grow-1">
                                 <h4 className="fw-bold text-uppercase text-center mb-3">{user.name} - {user.class?.name}</h4>
                                 <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{user.portfolioAbout}</Markdown>
                             </div>

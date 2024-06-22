@@ -8,11 +8,11 @@ import MediaPreview from "../../../components/MediaPreview"
 function Stories({ stories }) {
     const renderStories = stories.map(story => {
         return (
-            <div key={story.id} className="text-center p-3">
+            <div key={story.id} className="p-3">
                 <div className="px-lg-5 mb-4">
                     <MediaPreview src={getMediaUrl(story.attributes?.details?.media)} type={getMediaType(story.attributes?.details?.media)} ratio="16x9" />
                 </div>
-                <p className="fs-5">{story.attributes?.user?.data?.attributes?.name} - {story.attributes?.user?.data?.attributes?.class?.data?.attributes?.name}</p>
+                <p className="fs-5 text-center">{story.attributes?.user?.data?.attributes?.name} - {story.attributes?.user?.data?.attributes?.class?.data?.attributes?.name}</p>
                 <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{story.attributes?.details?.description}</Markdown>
             </div>
         )

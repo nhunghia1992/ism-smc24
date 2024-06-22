@@ -7,11 +7,11 @@ import { getMediaUrl } from "../../../helpers"
 function Classes({ classes }) {
     const renderClasses = classes.map(classItem => {
         return (
-            <div key={classItem.id} className="text-center p-3">
+            <div key={classItem.id} className="p-3">
                 <div className="px-lg-5 mb-4">
                     <img src={getMediaUrl(classItem.attributes?.media)} className={`w-100 m-auto rounded-5`} alt="Class" />
                 </div>
-                <p className="fs-5">{classItem.attributes?.name}</p>
+                <p className="fs-5 text-center">{classItem.attributes?.name}</p>
                 <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{classItem.attributes?.description}</Markdown>
             </div>
         )

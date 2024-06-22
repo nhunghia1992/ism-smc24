@@ -8,11 +8,11 @@ import MediaPreview from "../../../components/MediaPreview"
 function Projects({ projects }) {
     const renderProjects = projects.map(project => {
         return (
-            <div key={project.id} className="text-center p-3">
+            <div key={project.id} className="p-3">
                 <div className="px-lg-5 mb-4">
                     <MediaPreview src={getMediaUrl(project.attributes?.details?.media)} type={getMediaType(project.attributes?.details?.media)} ratio="16x9" />
                 </div>
-                <p className="fs-5">{project.attributes?.user?.data?.attributes?.name} - {project.attributes?.user?.data?.attributes?.class?.data?.attributes?.name}</p>
+                <p className="fs-5 text-center">{project.attributes?.user?.data?.attributes?.name} - {project.attributes?.user?.data?.attributes?.class?.data?.attributes?.name}</p>
                 <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{project.attributes?.details?.description}</Markdown>
             </div>
         )

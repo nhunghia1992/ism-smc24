@@ -27,8 +27,8 @@ function Users({ users }) {
 
     const renderUsers = users.map(user => {
         return (
-            <div key={user.id} className="text-center p-3">
-                <p className="fs-5">{user.name} - {user.class?.name}</p>
+            <div key={user.id} className="p-3">
+                <p className="fs-5 text-center">{user.name} - {user.class?.name}</p>
                 <div className="px-lg-5 mb-4">
                     <img
                         onMouseDown={handleMouseDown}

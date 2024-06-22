@@ -148,7 +148,9 @@ function Project() {
                             <MediaPreview src={getMediaUrl(story.attributes?.details?.media)} type={getMediaType(story.attributes?.details?.media)} ratio="16x9" />
                         </div>
                         <div className="col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
-                            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{story.attributes?.details?.description}</Markdown>
+                            <div className="flex-grow-1">
+                                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{story.attributes?.details?.description}</Markdown>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -165,7 +167,9 @@ function Project() {
                             <MediaPreview src={getMediaUrl(project.attributes?.details?.media)} type={getMediaType(project.attributes?.details?.media)} ratio="16x9" />
                         </div>
                         <div className="col-lg-6 order-lg-1 d-flex align-items-center mb-3 mb-lg-0">
-                            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{project.attributes?.details?.description}</Markdown>
+                            <div className="flex-grow-1">
+                                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{project.attributes?.details?.description}</Markdown>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -182,7 +186,9 @@ function Project() {
                             <MediaPreview src={getMediaUrl(roboticsCoding.attributes?.details?.media)} type={getMediaType(roboticsCoding.attributes?.details?.media)} ratio="16x9" />
                         </div>
                         <div className="col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
-                            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{roboticsCoding.attributes?.details?.description}</Markdown>
+                            <div className="flex-grow-1">
+                                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{roboticsCoding.attributes?.details?.description}</Markdown>
+                            </div>
                         </div>
                     </div>
                 </div>

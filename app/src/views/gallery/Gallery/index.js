@@ -91,8 +91,8 @@ function Gallery() {
                 {/* About */}
                 <div className="container py-5" id="about">
                     <div className="row">
-                        <div className="col-12 text-center">
-                            <h2 className="fw-bold mb-4">About ISMART ONLINE</h2>
+                        <div className="col-12">
+                            <h2 className="fw-bold mb-4 text-center">About ISMART ONLINE</h2>
                             <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{program?.attributes?.aboutIsmart}</Markdown>
                             <MediaPreview src={getMediaUrl(program?.attributes?.aboutIsmartVideo)} type={getMediaType(program?.attributes?.aboutIsmartVideo)} hideZoom={true} hideBorder={true} />
                         </div>
