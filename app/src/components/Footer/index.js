@@ -29,7 +29,7 @@ function Footer() {
                             <br />
                             <strong>Email:</strong> info@ismartonline.edu.vn
                             <br />
-                            <strong>Website:</strong> https://ismartonline.edu.vn
+                            <strong>Website:</strong> <a href="https://ismartonline.edu.vn" target="_blank" rel="noreferrer" className="text-reset">https://ismartonline.edu.vn</a>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ function Footer() {
                 <div className="text-center">
                     {/* Chính Sách Bảo Mật Quyền Riêng Tư
                     <span className="mx-4">|</span> */}
-                    2024 © Bản quyền thuộc về iSMART Global Academy
+                    2024 © Bản quyền thuộc về iSMART Online
                 </div>
             </div>
         </>
