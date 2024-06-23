@@ -18,11 +18,11 @@ COPY ./tsconfig.json ./tsconfig.json
 COPY ./favicon.png ./favicon.png
 
 # build admin
-RUN ENV_PATH=/cms/.env.production npm run build --clean
+RUN NODE_ENV=production ENV_PATH=/cms/.env.production npm run build --clean
 
 # start server using pm2
 RUN npm install pm2 -g
-CMD ENV_PATH=/cms/.env.production pm2-runtime start server.js
+CMD NODE_ENV=production ENV_PATH=/cms/.env.production pm2-runtime start server.js
 
 # start server using forever
 # RUN npm install forever -g
