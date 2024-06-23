@@ -137,77 +137,89 @@ function Project() {
                 </div>
 
                 {/* Story */}
-                <div className="container py-5">
-                    <div className="row">
-                        <div className="col-12">
-                            <h3 className="text-center fw-bold mb-4">MY STORY</h3>
+                {
+                    story.id > 0 &&
+                    <div className="container py-5">
+                        <div className="row">
+                            <div className="col-12">
+                                <h3 className="text-center fw-bold mb-4">MY STORY</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-6 mb-3 mb-lg-0">
-                            <MediaPreview src={getMediaUrl(story.attributes?.details?.media)} type={getMediaType(story.attributes?.details?.media)} ratio="16x9" />
-                        </div>
-                        <div className="col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
-                            <div className="flex-grow-1">
-                                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{story.attributes?.details?.description}</Markdown>
+                        <div className="row">
+                            <div className="col-lg-6 mb-3 mb-lg-0">
+                                <MediaPreview src={getMediaUrl(story.attributes?.details?.media)} type={getMediaType(story.attributes?.details?.media)} ratio="16x9" />
+                            </div>
+                            <div className="col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
+                                <div className="flex-grow-1">
+                                    <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{story.attributes?.details?.description}</Markdown>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
 
                 {/* Project */}
-                <div className="container py-5">
-                    <div className="row">
-                        <div className="col-12">
-                            <h3 className="text-center fw-bold mb-4">MY SCIENCE PROJECT</h3>
+                {
+                    project.id > 0 &&
+                    <div className="container py-5">
+                        <div className="row">
+                            <div className="col-12">
+                                <h3 className="text-center fw-bold mb-4">MY SCIENCE PROJECT</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-6 order-lg-2 mb-3 mb-lg-0">
-                            <MediaPreview src={getMediaUrl(project.attributes?.details?.media)} type={getMediaType(project.attributes?.details?.media)} ratio="16x9" />
-                        </div>
-                        <div className="col-lg-6 order-lg-1 d-flex align-items-center mb-3 mb-lg-0">
-                            <div className="flex-grow-1">
-                                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{project.attributes?.details?.description}</Markdown>
+                        <div className="row">
+                            <div className="col-lg-6 order-lg-2 mb-3 mb-lg-0">
+                                <MediaPreview src={getMediaUrl(project.attributes?.details?.media)} type={getMediaType(project.attributes?.details?.media)} ratio="16x9" />
+                            </div>
+                            <div className="col-lg-6 order-lg-1 d-flex align-items-center mb-3 mb-lg-0">
+                                <div className="flex-grow-1">
+                                    <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{project.attributes?.details?.description}</Markdown>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
 
                 {/* Robotics & Coding */}
-                <div className="container py-5">
-                    <div className="row">
-                        <div className="col-12">
-                            <h3 className="text-center fw-bold mb-4">MY ROBOTICS/CODING</h3>
+                {
+                    roboticsCoding.id > 0 &&
+                    <div className="container py-5">
+                        <div className="row">
+                            <div className="col-12">
+                                <h3 className="text-center fw-bold mb-4">MY ROBOTICS/CODING</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-6 mb-3 mb-lg-0">
-                            <MediaPreview src={getMediaUrl(roboticsCoding.attributes?.details?.media)} type={getMediaType(roboticsCoding.attributes?.details?.media)} ratio="16x9" />
-                        </div>
-                        <div className="col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
-                            <div className="flex-grow-1">
-                                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{roboticsCoding.attributes?.details?.description}</Markdown>
+                        <div className="row">
+                            <div className="col-lg-6 mb-3 mb-lg-0">
+                                <MediaPreview src={getMediaUrl(roboticsCoding.attributes?.details?.media)} type={getMediaType(roboticsCoding.attributes?.details?.media)} ratio="16x9" />
+                            </div>
+                            <div className="col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
+                                <div className="flex-grow-1">
+                                    <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{roboticsCoding.attributes?.details?.description}</Markdown>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
 
                 {/* Achievement / Comment */}
-                <div className="container-fluid g-0 py-5">
-                    <div className="row">
-                        <div className="col-12">
-                            <h3 className="text-center fw-bold mb-4">MY ACHIEVEMENT</h3>
+                {
+                    comments.length > 0 &&
+                    <div className="container-fluid g-0 py-5">
+                        <div className="row">
+                            <div className="col-12">
+                                <h3 className="text-center fw-bold mb-4">MY ACHIEVEMENT</h3>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-12">
+                                <Slider {...CAROUSEL_THREE_SETTINGS} infinite={comments.length === 1 ? false : true}>
+                                    {renderComments}
+                                </Slider>
+                            </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-12">
-                            <Slider {...CAROUSEL_THREE_SETTINGS} infinite={comments.length === 1 ? false : true}>
-                                {renderComments}
-                            </Slider>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
 
             <Footer />

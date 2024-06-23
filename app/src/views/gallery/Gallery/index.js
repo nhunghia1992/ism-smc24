@@ -40,9 +40,9 @@ function Gallery() {
                 populate: 'media'
             }
             const subjectParams = {
-                'filters[details][featured][$eq]': true,
                 populate: 'details.media, user.class',
-                sort: 'details.featuredOrder:desc',
+                'filters[featured][$eq]': true,
+                sort: 'featuredOrder:desc',
                 // 'pagination[limit]': 5
             }
             const userParams = {
@@ -118,22 +118,40 @@ function Gallery() {
                 </div>
 
                 {/* Teacher */}
-                <Teachers teachers={teachers} />
+                {
+                    teachers.length > 0 &&
+                    <Teachers teachers={teachers} />
+                }
 
                 {/* Our Class */}
-                <Classes classes={classes} />
+                {
+                    classes.length > 0 &&
+                    <Classes classes={classes} />
+                }
 
                 {/* Stories */}
-                <Stories stories={stories} />
+                {
+                    stories.length > 0 &&
+                    <Stories stories={stories} />
+                }
 
                 {/* Projects */}
-                <Projects projects={projects} />
+                {
+                    projects.length > 0 &&
+                    <Projects projects={projects} />
+                }
 
                 {/* Robotics & Codings */}
-                <RoboticsCodings roboticsCodings={roboticsCodings} />
+                {
+                    roboticsCodings.length > 0 &&
+                    <RoboticsCodings roboticsCodings={roboticsCodings} />
+                }
 
                 {/* Users */}
-                <Users users={users} />
+                {
+                    users.length > 0 &&
+                    <Users users={users} />
+                }
             </div>
 
             <Footer />

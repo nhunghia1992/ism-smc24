@@ -31,7 +31,9 @@ function Experience() {
     useEffect(() => {
         const getData = async () => {
             const commentParams = {
-                populate: 'details.media, user.image, user.class'
+                populate: 'details.media, user.image, user.class',
+                'filters[featured][$eq]': true,
+                sort: 'featuredOrder:desc',
             }
             const [program, comments] = await Promise.all([
                 apiGet(API_ENDPOINTS.PROGRAM),
@@ -90,32 +92,41 @@ function Experience() {
                         </div>
                     </div>
 
-                    <div className="row mb-5">
-                        <div className="col-12">
-                            <h3 className="text-center">Cảm nhận của Học sinh</h3>
-                            <Slider {...CAROUSEL_ONE_SETTINGS} infinite={studentComments.length === 1 ? false : true}>
-                                {renderStudentComments}
-                            </Slider>
+                    {
+                        studentComments.length > 0 &&
+                        <div className="row mb-5">
+                            <div className="col-12">
+                                <h3 className="text-center">Cảm nhận của Học sinh</h3>
+                                <Slider {...CAROUSEL_ONE_SETTINGS} infinite={studentComments.length === 1 ? false : true}>
+                                    {renderStudentComments}
+                                </Slider>
+                            </div>
                         </div>
-                    </div>
+                    }
 
-                    <div className="row mb-5">
-                        <div className="col-12">
-                            <h3 className="text-center">Cảm nhận của Phụ huynh</h3>
-                            <Slider {...CAROUSEL_ONE_SETTINGS} infinite={parentComments.length === 1 ? false : true}>
-                                {renderParentComments}
-                            </Slider>
+                    {
+                        parentComments.length > 0 &&
+                        <div className="row mb-5">
+                            <div className="col-12">
+                                <h3 className="text-center">Cảm nhận của Phụ huynh</h3>
+                                <Slider {...CAROUSEL_ONE_SETTINGS} infinite={parentComments.length === 1 ? false : true}>
+                                    {renderParentComments}
+                                </Slider>
+                            </div>
                         </div>
-                    </div>
+                    }
 
-                    <div className="row">
-                        <div className="col-12">
-                            <h3 className="text-center">Cảm nhận của Giáo viên</h3>
-                            <Slider {...CAROUSEL_ONE_SETTINGS} infinite={teacherComments.length === 1 ? false : true}>
-                                {renderTeacherComments}
-                            </Slider>
+                    {
+                        teacherComments.length > 0 &&
+                        <div className="row">
+                            <div className="col-12">
+                                <h3 className="text-center">Cảm nhận của Giáo viên</h3>
+                                <Slider {...CAROUSEL_ONE_SETTINGS} infinite={teacherComments.length === 1 ? false : true}>
+                                    {renderTeacherComments}
+                                </Slider>
+                            </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
 

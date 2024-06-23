@@ -175,26 +175,33 @@ function Welcome() {
                 </div>
 
                 {/* Favorite */}
-                <div className="container py-5">
-                    <div className="row">
-                        <div className="col-lg-6 offset-lg-3">
-                            <h2 className="text-center fw-bold mb-4">MY FAVOURITE THINGS</h2>
-                            <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{user.portfolioFavorite}</Markdown>
+                {
+                    user.portfolioFavorite &&
+                    <div className="container py-5">
+                        <div className="row">
+                            <div className="col-lg-6 offset-lg-3">
+                                <h2 className="text-center fw-bold mb-4">MY FAVOURITE THINGS</h2>
+                                <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{user.portfolioFavorite}</Markdown>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
+
 
                 {/* Activities */}
-                <div className="container py-5">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2 className="text-center fw-bold mb-4">MY SUMMER CAMP ACTIVITIES</h2>
+                {
+                    weeks.length > 0 &&
+                    <div className="container py-5">
+                        <div className="row">
+                            <div className="col-12">
+                                <h2 className="text-center fw-bold mb-4">MY SUMMER CAMP ACTIVITIES</h2>
+                            </div>
+                        </div>
+                        <div className="row">
+                            {renderActivities}
                         </div>
                     </div>
-                    <div className="row">
-                        {renderActivities}
-                    </div>
-                </div>
+                }
             </div>
 
             <Footer />
