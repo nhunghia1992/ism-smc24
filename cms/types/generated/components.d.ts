@@ -36,15 +36,6 @@ export interface SubjectDetails extends Schema.Component {
         }
       >;
     media: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    featured: Attribute.Boolean & Attribute.DefaultTo<false>;
-    featuredOrder: Attribute.Integer &
-      Attribute.SetMinMax<
-        {
-          min: 0;
-        },
-        number
-      > &
-      Attribute.DefaultTo<0>;
   };
 }
 

@@ -27,15 +27,6 @@
         "videos",
         "audios"
       ]
-    },
-    "featured": {
-      "type": "boolean",
-      "default": false
-    },
-    "featuredOrder": {
-      "type": "integer",
-      "default": 0,
-      "min": 0
     }
   }
 }

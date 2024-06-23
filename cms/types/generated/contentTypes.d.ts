@@ -893,6 +893,15 @@ export interface ApiCommentComment extends Schema.CollectionType {
     >;
     group: Attribute.Enumeration<['student', 'parent', 'teacher']>;
     details: Attribute.Component<'subject.details'>;
+    featured: Attribute.Boolean & Attribute.DefaultTo<false>;
+    featuredOrder: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1047,6 +1056,15 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'plugin::users-permissions.user'
     >;
     details: Attribute.Component<'subject.details'>;
+    featured: Attribute.Boolean & Attribute.DefaultTo<false>;
+    featuredOrder: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1088,6 +1106,15 @@ export interface ApiRoboticsCodingRoboticsCoding extends Schema.CollectionType {
       'plugin::users-permissions.user'
     >;
     details: Attribute.Component<'subject.details'>;
+    featured: Attribute.Boolean & Attribute.DefaultTo<false>;
+    featuredOrder: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1125,6 +1152,15 @@ export interface ApiStoryStory extends Schema.CollectionType {
       'plugin::users-permissions.user'
     >;
     details: Attribute.Component<'subject.details'>;
+    featured: Attribute.Boolean & Attribute.DefaultTo<false>;
+    featuredOrder: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
