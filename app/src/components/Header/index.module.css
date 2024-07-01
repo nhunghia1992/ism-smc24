@@ -4,6 +4,24 @@
     padding: 1rem;
 }
 
+.menuBtn {
+    background: none;
+    border: none;
+    z-index: 100;
+    background-color: var(--secondary-bg-trans);
+    border-radius: 0.65rem;
+    padding: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuBtn svg {
+    width: 25px;
+    height: 25px;
+    fill: #fff;
+}
+
 .logoLink.noMenu {
     justify-content: center;
     padding: 1rem;
@@ -13,10 +31,16 @@
     .headerLogo {
         max-width: 130px;
     }
+
+    .menuBtn {
+        display: none;
+    }
+
     .logoLink {
         position: relative;
         margin-bottom: -4rem;
     }
+
     .logoLink.noMenu {
         position: absolute;
         left: 10%;
