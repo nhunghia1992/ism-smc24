@@ -7,12 +7,23 @@ import MediaPreview from "../../../components/MediaPreview"
 
 function RoboticsCodings({ roboticsCodings }) {
     const renderRoboticsCodings = roboticsCodings.map(roboticsCoding => {
+        const renderUsers = roboticsCoding.attributes?.users?.data?.map(user => {
+            return (
+                <>
+                    {user.attributes?.name} - {user.attributes?.class?.data?.attributes?.name}
+                    <br />
+                </>
+            )
+        })
+
         return (
             <div key={roboticsCoding.id} className="p-3">
                 <div className="px-lg-5 mb-4">
                     <MediaPreview src={getMediaUrl(roboticsCoding.attributes?.details?.media)} type={getMediaType(roboticsCoding.attributes?.details?.media)} ratio="16x9" />
                 </div>
-                <p className="fs-5 text-center">{roboticsCoding.attributes?.user?.data?.attributes?.name} - {roboticsCoding.attributes?.user?.data?.attributes?.class?.data?.attributes?.name}</p>
+                <p className="fs-5 text-center">
+                    {renderUsers}
+                </p>
                 <Markdown rehypePlugins={[rehypeRaw]} className="ck-content">{roboticsCoding.attributes?.details?.description}</Markdown>
             </div>
         )

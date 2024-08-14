@@ -61,20 +61,22 @@ function Project() {
         if (!user?.id || !week?.id) return;
 
         const getData = async () => {
-            const params = {
+            const subjectParams = {
+                'filters[users][id][$contains]': user.id,
+                'filters[week][id][$eq]': week.id,
+                populate: 'details.media',
+                'pagination[limit]': 1
+            }
+            const commentParams = {
                 'filters[user][id][$eq]': user.id,
                 'filters[week][id][$eq]': week.id,
                 populate: 'details.media',
-            }
-            const subjectParams = {
-                ...params,
-                'pagination[limit]': 1
             }
             const [stories, projects, roboticsCodings, comments] = await Promise.all([
                 apiGet(API_ENDPOINTS.STORIES, subjectParams),
                 apiGet(API_ENDPOINTS.PROJECTS, subjectParams),
                 apiGet(API_ENDPOINTS.ROBOTICS_CODINGS, subjectParams),
-                apiGet(API_ENDPOINTS.COMMENTS, params)
+                apiGet(API_ENDPOINTS.COMMENTS, commentParams)
             ])
 
             if (stories?.data?.length) setStory(stories.data[0]);

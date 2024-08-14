@@ -17,9 +17,9 @@
       "relation": "oneToOne",
       "target": "api::week.week"
     },
-    "user": {
+    "users": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "plugin::users-permissions.user"
     },
     "details": {

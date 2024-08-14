@@ -26,7 +26,9 @@ export default {
                     const subjectItem = await strapi.entityService.findMany<any, any>(`api::${subject}.${subject}`, {
                         filters: {
                             week: week.id,
-                            user: user.id,
+                            users: {
+                                $contains: user.id
+                            },
                             publishedAt: {
                                 $null: false
                             }

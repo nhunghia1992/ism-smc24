@@ -1050,9 +1050,9 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToOne',
       'api::week.week'
     >;
-    user: Attribute.Relation<
+    users: Attribute.Relation<
       'api::project.project',
-      'oneToOne',
+      'oneToMany',
       'plugin::users-permissions.user'
     >;
     details: Attribute.Component<'subject.details'>;
@@ -1100,9 +1100,9 @@ export interface ApiRoboticsCodingRoboticsCoding extends Schema.CollectionType {
       'oneToOne',
       'api::week.week'
     >;
-    user: Attribute.Relation<
+    users: Attribute.Relation<
       'api::robotics-coding.robotics-coding',
-      'oneToOne',
+      'oneToMany',
       'plugin::users-permissions.user'
     >;
     details: Attribute.Component<'subject.details'>;
@@ -1146,9 +1146,9 @@ export interface ApiStoryStory extends Schema.CollectionType {
   };
   attributes: {
     week: Attribute.Relation<'api::story.story', 'oneToOne', 'api::week.week'>;
-    user: Attribute.Relation<
+    users: Attribute.Relation<
       'api::story.story',
-      'oneToOne',
+      'oneToMany',
       'plugin::users-permissions.user'
     >;
     details: Attribute.Component<'subject.details'>;

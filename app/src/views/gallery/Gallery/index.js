@@ -40,7 +40,7 @@ function Gallery() {
                 populate: 'media'
             }
             const subjectParams = {
-                populate: 'details.media, user.class',
+                populate: 'details.media, users.class',
                 'filters[featured][$eq]': true,
                 sort: 'featuredOrder:desc',
                 // 'pagination[limit]': 5
