@@ -62,7 +62,7 @@ function Project() {
 
         const getData = async () => {
             const subjectParams = {
-                'filters[users][id][$contains]': user.id,
+                'filters[users][id][$in]': user.id,
                 'filters[week][id][$eq]': week.id,
                 populate: 'details.media',
                 'pagination[limit]': 1
