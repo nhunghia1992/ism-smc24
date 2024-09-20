@@ -113,6 +113,24 @@
         "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "inversedBy": "users"
+    },
+    "robotics_and_codings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::robotics-coding.robotics-coding",
+      "inversedBy": "users"
+    },
+    "stories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::story.story",
+      "inversedBy": "users"
     }
   }
 }

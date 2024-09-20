@@ -807,6 +807,21 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
           preset: 'rich';
         }
       >;
+    projects: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::project.project'
+    >;
+    robotics_and_codings: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::robotics-coding.robotics-coding'
+    >;
+    stories: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::story.story'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1052,7 +1067,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     >;
     users: Attribute.Relation<
       'api::project.project',
-      'oneToMany',
+      'manyToMany',
       'plugin::users-permissions.user'
     >;
     details: Attribute.Component<'subject.details'>;
@@ -1102,7 +1117,7 @@ export interface ApiRoboticsCodingRoboticsCoding extends Schema.CollectionType {
     >;
     users: Attribute.Relation<
       'api::robotics-coding.robotics-coding',
-      'oneToMany',
+      'manyToMany',
       'plugin::users-permissions.user'
     >;
     details: Attribute.Component<'subject.details'>;
@@ -1148,7 +1163,7 @@ export interface ApiStoryStory extends Schema.CollectionType {
     week: Attribute.Relation<'api::story.story', 'oneToOne', 'api::week.week'>;
     users: Attribute.Relation<
       'api::story.story',
-      'oneToMany',
+      'manyToMany',
       'plugin::users-permissions.user'
     >;
     details: Attribute.Component<'subject.details'>;
