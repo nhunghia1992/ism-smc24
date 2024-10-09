@@ -56,7 +56,7 @@ const CertificatePDF = ({ name }) => {
 
     return (
         <PDFViewer style={pdfStyles.viewer}>
-            <Document title="iSMART Summer Camp 2024 Certificate" creator="iSMART Global Academy" producer="iSMART Global Academy" author="iSMART Global Academy" pageLayout="singlePage">
+            <Document title="Certificate | iSMART Online | iSMART Education" creator="iSMART Online" producer="iSMART Online" author="iSMART Online" pageLayout="singlePage">
                 {/*render a single page*/}
                 <Page size={certificateSize}>
                     <View>

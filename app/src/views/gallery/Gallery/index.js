@@ -100,22 +100,25 @@ function Gallery() {
                 </div>
 
                 {/* Objectives */}
-                <div className="container py-5" id="objectives">
-                    <div className="row align-items-center">
-                        <div className="col-lg-6 order-lg-2">
-                            <h2 className="fw-bold mb-4">
-                                Objectives<br />
-                                <em>Mục tiêu của SUMMER CAMP</em>
-                            </h2>
-                            <div>
-                                {renderObjectives}
+                {
+                    renderObjectives?.length > 0 &&
+                    <div className="container py-5" id="objectives">
+                        <div className="row align-items-center">
+                            <div className="col-lg-6 order-lg-2">
+                                <h2 className="fw-bold mb-4">
+                                    Objectives<br />
+                                    <em>Mục tiêu của SUMMER CAMP</em>
+                                </h2>
+                                <div>
+                                    {renderObjectives}
+                                </div>
+                            </div>
+                            <div className="col-lg-6 order-lg-1">
+                                <MediaPreview src={getMediaUrl(program?.attributes?.objectiveMedia)} type={getMediaType(program?.attributes?.objectiveMedia)} hideZoom={true} hideBorder={true} />
                             </div>
                         </div>
-                        <div className="col-lg-6 order-lg-1">
-                            <MediaPreview src={getMediaUrl(program?.attributes?.objectiveMedia)} type={getMediaType(program?.attributes?.objectiveMedia)} hideZoom={true} hideBorder={true} />
-                        </div>
                     </div>
-                </div>
+                }
 
                 {/* Teacher */}
                 {

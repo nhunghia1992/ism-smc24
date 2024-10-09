@@ -4,7 +4,7 @@ import mainImg from "../../../assets/image/main.png"
 function Banner() {
     return (
         <div className={`d-flex flex-column align-items-center justify-content-center ${styles.main}`}>
-            <img src={mainImg} alt="My Summer Camp Portfolio 2024" className={`img-fluid ${styles.mainImg}`} />
+            <img src={mainImg} alt="My Portfolio | iSMART Online | iSMART Education" className={`img-fluid ${styles.mainImg}`} />
         </div>
     )
 }
