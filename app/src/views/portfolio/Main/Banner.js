@@ -1,5 +1,5 @@
 import styles from "./Banner.module.css"
-import mainImg from "../../../assets/image/main.png"
+import mainImg from "../../../assets/image/gallery.png"
 
 function Banner() {
     return (
